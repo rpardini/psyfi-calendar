@@ -33,9 +33,9 @@ function find3ForStage($acts, $curTS, $stage) {
 
     //echo "-- Stage: $stage -- Found: $found\n";
 
-    $before = $acts[$found - 1];
+    $before = @$acts[$found - 1];
     $now = $exact ? $acts[$found] : null;
-    $next = $acts[$found + 1];
+    $next = @$acts[$found + 1];
 
     return array('before' => $before, 'now' => $now, 'next' => $next);
 
@@ -72,101 +72,6 @@ function splitByStageOrderByTs($allActs, $allStages) {
 }
 
 
-/**
- * @param $musicRaw
- * @param $lecturesRaw
- * @return array
- */
-function massageAllData($musicRaw, $lecturesRaw) {
-    $allDebug = true;
-    $debug = $allDebug;
-    $debug2 = $allDebug;
-    $debug3 = $allDebug;
-    $debug4 = $allDebug;
-    setlocale(LC_ALL, 'en_US');
-
-    if ($debug || $debug2 || $debug3 || $debug4) header("Content-type: text/plain");
-
-
-    if ($debug3) echo "------------ MUSIC ---------------------\n";
-
-// Music, in 30-min time slots. tricky
-    $lines = explode("\n", $musicRaw);
-    $i = 0;
-    $musicSlots = array();
-    foreach ($lines as $line) {
-        $i++;
-        if ($i == 1) continue; // skip header
-        $cols = explode("\t", $line);
-        if ($debug3) print_r($cols);
-        $musicSlots[] = $cols;
-    }
-
-
-    if ($debug) echo "------------ LECTURES ---------------------\n";
-
-
-// Lectures...
-    $lines = explode("\n", $lecturesRaw);
-    $i = 0;
-    $lectureActs = array();
-    foreach ($lines as $line) {
-        $i++;
-        if ($i == 1) continue; // skip header
-        $cols = explode("\t", $line);
-        if ($debug3) print_r($cols);
-        $lectureActs[] = parseDateTime($cols[0], $cols[1], $cols[2], $cols[3], $cols[4]);
-    }
-
-    if ($debug) print_r($lectureActs);
-
-
-// Now; massage the music slots into single attractions, by act name + stage.
-    $musicActsSlots = [];
-    foreach ($musicSlots as $musicSlot) {
-        $actNameStage = trim($musicSlot[2]) . " (at " . trim($musicSlot[3]) . ")";
-        if (@!$musicActsSlots[$actNameStage]) {
-            $musicActsSlots[$actNameStage] = [];
-        }
-        $musicActsSlots[$actNameStage][] = parseDateTime($musicSlot[0], $musicSlot[6], $musicSlot[7], $musicSlot[2], $musicSlot[3]);
-    }
-
-    if ($debug2) echo "------------ MUSIC SLOTS BY ARTIST/STAGE ---------------------\n";
-    if ($debug2) print_r($musicActsSlots);
-
-// Now, massage the single attractions + slots into a single act
-
-    $allActs = $lectureActs;
-    foreach ($musicActsSlots as $act => $slots) {
-
-        $low_ts = 32178132879312897;
-        $high_ts = 0;
-        $low_tsfull = null;
-        $high_tsfull = null;
-        $oneSlot = null;
-        foreach ($slots as $slot) {
-            $start = $slot['ts_start']['ts'];
-            $end = $slot['ts_end']['ts'];
-            if ($end > $high_ts) {
-                $high_ts = $end;
-                $high_tsfull = $slot['ts_end'];
-            }
-            if ($start < $low_ts) {
-                $low_ts = $start;
-                $low_tsfull = $slot['ts_start'];
-            }
-            $oneSlot = $slot;
-        }
-        $oneSlot['ts_start'] = $low_tsfull;
-        $oneSlot['ts_end'] = $high_tsfull;
-
-        $allActs[] = $oneSlot;
-    }
-
-    if ($debug4) print_r($allActs);
-    return $allActs;
-}
-
 function getAllStages($allData) {
     $stages = [];
 
@@ -178,26 +83,6 @@ function getAllStages($allData) {
 }
 
 
-function parseTxtDate($txtDate, $txtStartHour) {
-    global $debug2;
-    $partesDate = explode(", ", trim($txtDate));
-    $goodDate = $partesDate[1];
-    $goodDate = str_replace(" August ", "/08/", $goodDate);
-    $goodDate = str_replace(" September ", "/09/", $goodDate);
-    $str = $goodDate . " " . trim($txtStartHour);
-    $ts_startObj = date_create_from_format("j/n/Y G:i:s", $str);
-    if ($ts_startObj === false) throw new Exception("Could not parse date: $str");
-    $ts_start = $ts_startObj->getTimestamp();
-    $reformat = strftime("%d/%a[%H:%M]", $ts_start);
-    if ($debug2) echo "-- Date: $txtDate $txtStartHour  (TS: $ts_start) (Reformat: $reformat)\n";
-    return array('ts' => $ts_start, 'format' => $reformat, 'obj' => $ts_startObj);
-}
-
-function parseDateTime($txtDate, $txtStartHour, $txtEndHour, $what, $where) {
-    return array('ts_start' => parseTxtDate($txtDate, $txtStartHour), 'ts_end' => parseTxtDate($txtDate, $txtEndHour), 'what' => trim($what), 'where' => strtoupper(trim($where)));
-}
-
-
 /**
  * @param array $allActs
  * @param $filterWhere
@@ -206,19 +91,14 @@ function emitIcalForEvents(array $allActs, $filterWhere) {
     $begin = <<<EOD
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Pardini//PsyFi Event Calendar//EN
-NAME:Psy-Fi 2019 $filterWhere
-X-WR-CALNAME:Psy-Fi 2019 $filterWhere
-DESCRIPTION:Psy-Fi 2019 $filterWhere
-X-WR-CALDESC:Psy-Fi 2019 $filterWhere
+PRODID:-// clashfinder.com
+X-WR-CALNAME;VALUE=TEXT:PsyFi 2019 $filterWhere
 TIMEZONE-ID:Europe/Amsterdam
 X-WR-TIMEZONE:Europe/Amsterdam
 REFRESH-INTERVAL;VALUE=DURATION:PT01H
 X-PUBLISHED-TTL:PT01H
-COLOR:34:50:105
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-
 
 EOD;
 
@@ -227,7 +107,8 @@ END:VCALENDAR
 
 EOD;
 
-    header("Content-type: text/calendar");
+    header('Content-Type: text/calendar; charset=UTF-8');
+    header("Content-Disposition: attachment; filename=psyfi2019" . strtolower(str_replace(" ", "", $filterWhere)) . ".ics;");
 
     echo fixIcalLineTerm($begin);
 
