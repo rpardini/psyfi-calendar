@@ -34,9 +34,9 @@ if (@strlen($_REQUEST['stage']) > 1) {
         <meta property="og:title" content="Psy-Fi 2019 Timetables and Calendars"/>
         <meta property="og:description"
               content="Psy-Fi 2019 now playing, next playing, weather, import iCal ICS Google Calendar Outlook"/>
-        <meta property="og:image" content="<?= $baseUrl ?>img/googlecal.png"/>
-        <meta property="og:image:width" content="1776"/>
-        <meta property="og:image:height" content="772"/>
+        <meta property="og:image" content="<?= $baseUrl ?>img/shortgcal-min.png"/>
+        <meta property="og:image:width" content="876"/>
+        <meta property="og:image:height" content="479"/>
 
 
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
