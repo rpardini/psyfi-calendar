@@ -29,7 +29,7 @@ if (@strlen($_REQUEST['stage']) > 1) {
     emitIcalForEvents($allActs, $_REQUEST['stage']);
 } else {
     $curTS = 1567189119; //time() + (24 * 60 * 60 * 16) + (9329 * 2);
-    //if (@!$_REQUEST['fake']) $curTS = time();
+    if (@!$_REQUEST['fake']) $curTS = time();
 
     $curTS_fmt = strftime("[%a]%H:%M:%S", $curTS);
 
@@ -82,11 +82,11 @@ if (@strlen($_REQUEST['stage']) > 1) {
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta property="og:url" content="<?= $baseUrl ?>"/>
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Psy-Fi 2019 Timetables and Calendars"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Psy-Fi 2019 Now/Next playing, timetables and calendars"/>
         <meta property="og:description"
-              content="Psy-Fi 2019 now playing, next playing, weather, import iCal ICS Google Calendar Outlook"/>
-        <meta property="og:image" content="<?= $baseUrl ?>img/shortgcal-min.png"/>
+              content="Psy-Fi 2019 now playing, next playing, weather, import iCal ICS Google Calendar, Outlook"/>
+        <meta property="og:image" content="<?= $baseUrl ?>img/screenshot1.png"/>
         <meta property="og:image:width" content="876"/>
         <meta property="og:image:height" content="479"/>
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -231,7 +231,9 @@ if (@strlen($_REQUEST['stage']) > 1) {
 
 
     <footer>
-        by <a href="mailto:ricardo@pardini.net">rpardini</a> & <a href="mailto:dine@dine.tk">dine</a> 💚️
+        made with 💚 by <a href="mailto:ricardo@pardini.net">rpardini</a> & <a href="mailto:dine@dine.tk">dine</a>
+        💚️<br/>
+        fluid simulation by <a href="https://github.com/PavelDoGreat">PavelDoGreat</a>
     </footer>
 
     <?= scriptTagWithInlineScript('js/fluid-config.js') ?>
@@ -254,7 +256,7 @@ function showInstallButton($ifCondition) {
 
 function show3Data($act) {
     if (!$act) {
-        return "--";
+        return "<div class='act'>&emptyset;</div>";
     }
 
     return "<div class='act'>"

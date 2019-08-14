@@ -12,8 +12,8 @@ let config = {
     SPLAT_RADIUS: 0.15,
     SPLAT_FORCE: 7000,
     SHADING: false,
-    COLORFUL: false,
-    COLOR_UPDATE_SPEED: 10,
+    COLORFUL: true,
+    COLOR_UPDATE_SPEED: 1,
     PAUSED: false,
     BACK_COLOR: {r: 0x0c, g: 0x1d, b: 0x2d}, //     background-color: #0C1D2D;
     TRANSPARENT: false,
