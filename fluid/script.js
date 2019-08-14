@@ -25,6 +25,7 @@ SOFTWARE.
 'use strict';
 
 const canvas = document.getElementsByTagName('canvas')[0];
+
 // resizeCanvas();
 
 
@@ -145,10 +146,6 @@ function supportRenderTextureFormat (gl, internalFormat, format, type) {
 function isMobile () {
     //alert(navigator.userAgent + /Mobi|Android/i.test(navigator.userAgent));
     return /Mobi|Android/i.test(navigator.userAgent);
-}
-
-function clamp01 (input) {
-    return Math.min(Math.max(input, 0), 1);
 }
 
 
@@ -779,16 +776,34 @@ function createTextureAsync (url) {
     return obj;
 }
 
-initFramebuffers();
-
-setInterval(function () {
-    multipleSplats(2);
-}, 30000);
-
 
 let lastUpdateTime = Date.now();
 let colorUpdateTimer = 0.0;
-update();
+
+window.fluidHasStarted = false;
+
+function startFluid () {
+    if (window.fluidHasStarted) {
+        console.log("Fluid has already been started...");
+        return;
+    } else {
+        console.log("WILL START FLUID NOW!");
+        window.fluidHasStarted = true;
+        document.getElementById('logo').className = "";
+    }
+
+    initFramebuffers();
+
+    setInterval(function () {
+        multipleSplats(2);
+    }, 30000);
+
+    lastUpdateTime = Date.now();
+    colorUpdateTimer = 0.0;
+    update();
+}
+
+if (window.autoStartFluid) startFluid();
 
 function update () {
     const dt = calcDeltaTime();

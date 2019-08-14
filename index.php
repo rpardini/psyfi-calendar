@@ -1,5 +1,13 @@
 <?php
+
 $isMobile = preg_match("/Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/", $_SERVER['HTTP_USER_AGENT']);
+$isAndroid = preg_match("/Android/", $_SERVER['HTTP_USER_AGENT']);
+$isChrome = preg_match("/Chrome/", $_SERVER['HTTP_USER_AGENT']);
+$isPwaInstalled = @$_REQUEST['pwa'] === "true" ? 1 : 0;
+
+$showInstallButtonTop = (!$isPwaInstalled) && (($isMobile && ($isAndroid)));
+$showInstallButtonLater = (!$isPwaInstalled) && ((!$isMobile && ($isChrome)));
+
 $baseUrl = "https://psyfi.helaaspindakaas.xyz/";
 $autoEnableFluid = !$isMobile;
 $enableExternalFont = true;
@@ -92,14 +100,21 @@ if (@strlen($_REQUEST['stage']) > 1) {
 
         <link rel="stylesheet" type="text/css" href="styles.css?sid=<?= $sid ?>">
         <?= scriptTagWithInlineScript('js/pwa.js') ?>
+        <script type="text/javascript">
+            window.autoStartFluid = <?=$autoEnableFluid ? "true" : "false"?>;
+        </script>
     </head>
     <body>
+
+    <?php showInstallButton($showInstallButtonTop); ?>
 
     <canvas></canvas>
 
     <header>
-        <div class="logo"><img src="img/logo.main.png?lid=<?= $lid ?>" width="233" height="132"
-                               loading="eager" alt="PsyFi 2019"/></div>
+        <div class="logo"><img id="logo" src="img/logo.main.png?lid=<?= $lid ?>" width="233" height="132"
+                               loading="eager"
+                               alt="PsyFi 2019" <?= $autoEnableFluid ? "" : "onclick=\"startFluid()\" class=\"withPointerEvents\"" ?>/>
+        </div>
     </header>
 
     <section id="timetable">
@@ -119,6 +134,8 @@ if (@strlen($_REQUEST['stage']) > 1) {
             <?php
         }
         ?>
+
+        <?php showInstallButton($showInstallButtonLater); ?>
     </section>
 
     <section id="weather">
@@ -211,25 +228,26 @@ if (@strlen($_REQUEST['stage']) > 1) {
         </div>
     </section>
 
-    <section id="install">
-        <a class="button" href="javascript:installPwa()" onclick="installPwa()">Install App</a>
-    </section>
-
 
     <footer>
         by <a href="mailto:ricardo@pardini.net">rpardini</a> & <a href="mailto:dine@dine.tk">dine</a> 💚️
     </footer>
 
-    <?php
-    if ($autoEnableFluid) {
-        ?>
-        <?= scriptTagWithInlineScript('js/fluid-config.js') ?>
-        <script async src="fluid/script.js?vid=<?= $vid ?>"></script>
-        <?php
-    }
-    ?>
+    <?= scriptTagWithInlineScript('js/fluid-config.js') ?>
+    <script async src="fluid/script.js?vid=<?= $vid ?>"></script>
+
     </body>
     </html>
+    <?php
+}
+
+function showInstallButton($ifCondition) {
+    if (!$ifCondition) return;
+    ?>
+    <section id="install">
+        <a class="button" href="javascript:installPwa()" onclick="installPwa()">Add to Home for Offline data and
+            Fullscreen! Awesome!</a>
+    </section>
     <?php
 }
 

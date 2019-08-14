@@ -358,6 +358,10 @@ dd {
     width: 55%;
 }
 
+.withPointerEvents {
+    pointer-events: all;
+}
+
 .logo {
     text-align: center;
     padding-top: 1rem;
@@ -380,6 +384,7 @@ dd {
 }
 
 .button {
+    pointer-events: all;
     border: 1px solid #CCE4A0;
     border-radius: 5px;
     display: inline-block;
