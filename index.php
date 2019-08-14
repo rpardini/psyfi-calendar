@@ -45,6 +45,7 @@ if (@strlen($_REQUEST['stage']) > 1) {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <meta name="apple-mobile-web-app-title" content="Psy-Fi 2019">
         <link rel="apple-touch-icon" href="img/pwa/icon-192x192.png">
+        <link rel="icon" href="img/pwa/icon-128x128.png">
 
         <link href="img/splashscreens/iphone5_splash.png"
               media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
