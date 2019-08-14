@@ -19,7 +19,6 @@ html {
     word-break: break-word
 }
 
-
 h1 {
     font-size: 2em;
     margin: .67em 0
@@ -265,34 +264,29 @@ template {
     }
 }
 
-@keyframes colorRotateHalf {
-    100% {
-        -webkit-filter: hue-rotate(180deg);
-    }
-}
-
-/* rpardini: i hacked this badly */
-body {
-    margin: 0 auto;
-    max-width: 600px;
-    pointer-events: none;
-    background-color: transparent;
-}
+/*--- starts here ---*/
 
 html {
-    padding: 0px 0.6em;
+    /* padding: 0px 0.6em; */
     font-family: 'Barlow', sans-serif;
     background-color: #0c1d2d;
     color: white;
 }
 
+body {
+    /* margin: 0 auto;
+    max-width: 600px; */
+    margin: 0;
+    pointer-events: none;
+    background-color: transparent;
+}
 
 footer {
     background-color: rgba(170, 202, 112, 1);
     padding: 10px;
     color: #0C1D2D;
     text-align: right;
-    animation: colorRotate 5s linear infinite;
+    animation: colorRotate 30s linear infinite;
     margin-top: 1rem;
 }
 
@@ -300,28 +294,28 @@ footer a {
     color: #0C1D2D;
 }
 
-
 a {
     color: #CCE4A0;
-    animation: colorRotate 5s linear infinite;
+    animation: colorRotate 30s linear infinite;
 }
 
 p {
     margin: 0.5rem 0;
 }
 
-h2 {
-    margin: 1rem 0 0;
-    padding: 5px 10px;
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    background-color: rgba(16, 29, 30, 0);
-}
-
 h2, h3 {
     pointer-events: all;
     color: #CCE4A0;
-    animation: colorRotate 5s linear infinite;
+    animation: colorRotate 30s linear infinite;
+}
+
+h2 {
+    margin: 1rem 0;
+    padding: 5px 10px;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    border-top: 1px dotted #CCE4A0;
+    border-bottom: 1px dotted #CCE4A0;
 }
 
 dl {
@@ -331,6 +325,75 @@ dl {
     padding: 10px;
     margin: 0;
 }
+
+/* tables */
+
+table {
+    width: 100%;
+}
+
+thead tr, th {
+    font-weight: bold;
+    animation: colorRotate 30s linear infinite;
+    text-transform: uppercase;
+}
+
+tbody tr:nth-of-type(odd) { 
+    background: rgba(255, 255, 255, 0.04);
+}
+
+td, th { 
+    padding: 10px 15px; 
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    text-align: left; 
+}
+
+@media only screen and (max-width: 760px) {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	td, th { 
+		/* Behave  like a "row" */
+		border: none;
+		position: relative;
+		padding-left: 30%; 
+    }
+    
+    .table--wide td, .table--wide th {
+        padding-left: 10px;
+    }
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+        top: 10px;
+        left: 15px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	td::before { 
+        content: attr(data-before);
+        text-transform: uppercase;
+    }
+}
+
+/* def lists */
 
 dl:nth-child(2n) {
     background-color: rgba(255, 255, 255, 0.02);
@@ -365,10 +428,13 @@ dd {
 .logo {
     text-align: center;
     padding-top: 1rem;
-    animation: colorRotate 5s linear infinite;
+    animation: colorRotate 30s linear infinite;
 }
 
-.content {
+.container {
+    position: relative;
+    max-width: 876px;
+    margin: 0 auto;
     padding: 10px;
 }
 
@@ -389,35 +455,27 @@ dd {
     border-radius: 5px;
     display: inline-block;
     padding: 5px 10px;
-    animation: colorRotateHalf 15s linear infinite;
+    animation: colorRotate 30s linear infinite;
     text-decoration: none;
     text-align: center;
     line-height: 1.5;
     width: 100%;
 }
 
-dd.stageTitle {
-    color: cyan;
+.button--weather {
+    position: absolute;
+    width: 100px;
+    right: 15px;
+    top: -65px;
+}
+
+.color-rotate {
+    color: #CCE4A0;
     animation: colorRotate 30s linear infinite;
 }
 
-span.actname {
-    color: pink;
-    animation: colorRotateHalf 50s linear infinite;
-}
-
-span.acttime {
-    display: inline-block;
-    margin-right: 0.3em;
-    white-space: nowrap;
-}
-
-.act {
-    margin-top: 10px;
-}
-
 /* sections and footer actually dont trigger the effect. in practice only logo does */
-section, footer {
+.container {
     pointer-events: all;
 }
 
@@ -426,11 +484,10 @@ img {
     max-width: 100%;
 }
 
-
 canvas {
     pointer-events: all;
     z-index: -2;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;

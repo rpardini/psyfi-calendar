@@ -15,6 +15,8 @@ $vid = urlencode(md5(file_get_contents('index.php') . file_get_contents('js/pwa.
 $sid = urlencode(md5(file_get_contents('styles.css') . $vid));
 $mid = urlencode(md5(file_get_contents('manifest.json') . $vid));
 $lid = urlencode(md5(file_get_contents('img/logo.main.png') . $vid));
+$ssid = urlencode(md5(file_get_contents('img/shortgcal-min.png') . $vid));
+$flsid = urlencode(md5(file_get_contents('fluid/script.js') . $vid));
 require('clashfinder_data.php');
 require('functions.php');
 
@@ -31,11 +33,12 @@ if (@strlen($_REQUEST['stage']) > 1) {
     $curTS = 1567189119; //time() + (24 * 60 * 60 * 16) + (9329 * 2);
     if (@!$_REQUEST['fake']) $curTS = time();
 
-    $curTS_fmt = strftime("[%a]%H:%M:%S", $curTS);
+    $curTS_fmt = strftime("[%a] %H:%M:%S", $curTS);
 
     $status = get3ActsByStage($allActs, $allStages, $curTS);
     header('Content-type: text/html');
     ?>
+    <!DOCTYPE html>
     <html lang="en">
     <head>
         <title>Psy-Fi 2019</title>
@@ -94,7 +97,7 @@ if (@strlen($_REQUEST['stage']) > 1) {
         <?php
         if ($enableExternalFont) {
             ?>
-            <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Barlow:400,700&display=swap" rel="stylesheet">
             <?php
         }
         ?>
@@ -119,65 +122,92 @@ if (@strlen($_REQUEST['stage']) > 1) {
     </header>
 
     <section id="timetable">
-        <h2>Now and Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $curTS_fmt ?></h2>
+        <h2>
+            <div class="container">Now and Next</div>
+        </h2>
 
-        <?php
-        foreach ($status as $stage => $data) {
-            ?>
-            <dl>
-                <dt>Stage</dt>
-                <dd class="stageTitle"><?= $stage ?></dd>
-                <dt class="act">Now</dt>
-                <dd><?= show3Data($data['now']) ?></dd>
-                <dt class="act">Next</dt>
-                <dd><?= show3Data($data['next']) ?></dd>
-            </dl>
-            <?php
-        }
-        ?>
+        <div class="container">
 
+            <a class="button button--weather" href="https://www.buienradar.nl/weer/tytsjerk/nl/2746311/14daagse"
+               target="buien">
+                Weather
+            </a>
+
+
+            <table>
+                <thead>
+                <th><?= $curTS_fmt ?></th>
+                <td>Now</td>
+                <td>Next</td>
+                </thead>
+
+                <tbody>
+                <?php
+                foreach ($status as $stage => $data) {
+                    ?>
+                    <tr>
+                        <th><?= $stage ?></th>
+                        <td data-before="Now"><?= show3Data($data['now']) ?></td>
+                        <td data-before="Next"><?= show3Data($data['next']) ?></td>
+                    </tr>
+                    <?php
+                }
+                ?>
+                </tbody>
+            </table>
+        </div>
     </section>
 
-    <section id="weather">
-        <h2>Weather</h2>
-        <div class="weather">
-            <!--            <iframe src="https://gadgets.buienradar.nl/gadget/weathersymbol" noresize scrolling=no hspace=0 vspace=0
-                                loading="lazy"
-                                frameborder=0 marginheight=0 marginwidth=0 width=50 height=40></iframe>
-            -->        </div>
-        <div class="content">
+    <!-- <section id="weather">
+        <h2><div class="container">Weather</div></h2>
+        <div class="weather container">
+            <iframe src="https://gadgets.buienradar.nl/gadget/weathersymbol" noresize scrolling=no hspace=0 vspace=0 loading="lazy" frameborder=0 marginheight=0 marginwidth=0 width=50 height=40></iframe>
+        </div>
+        <div class="container">
             <a class="button" href="https://www.buienradar.nl/weer/tytsjerk/nl/2746311/14daagse" target="buien">
                 Coming soon! Go check weather yourself for now
             </a>
         </div>
-    </section>
+    </section> -->
 
     <section id="calendars">
-        <h2>Lineup / Timetable / Calendars</h2>
+        <h2>
+            <div class="container">Lineup / Timetable / Calendars</div>
+        </h2>
 
-        <?php
-        foreach ($allStages as $stage) {
-            $url = "{$baseUrl}?stage=" . urlencode($stage);
-            $webCal = str_replace("https://", "webcal://", $url);
-            ?>
-            <dl class="dl--wide">
-                <dt>Stage</dt>
-                <dd><?= $stage ?></dd>
-                <dt>Google</dt>
-                <dd><a class="button"
-                       href="https://www.google.com/calendar/render?cid=<?= urlencode($webCal) ?>&added_at=<?= time() ?>"
-                       target="gcalendar">Add <?= $stage ?> to Google</a></td></dd>
-                <dt>iCal/Outlook</dt>
-                <dd><a class="button" href="<?= $url ?>">Get <?= $stage ?> iCal</a></dd>
-            </dl>
-            <?php
-        }
-        ?>
+        <div class="container">
+            <table>
+                <thead>
+                <th></th>
+                <td>Google</td>
+                <td>iCal/Outlook</td>
+                </thead>
+                <tbody>
+                <?php
+                foreach ($allStages as $stage) {
+                    $url = "{$baseUrl}?cb=" . crc32(time()) . "&stage=" . urlencode($stage);
+                    $webCal = str_replace("https://", "webcal://", $url);
+                    ?>
+                    <tr class="table--wide">
+                        <th><?= $stage ?></th>
+                        <td><a class="button"
+                               href="https://www.google.com/calendar/render?cid=<?= urlencode($webCal) ?>&added_at=<?= time() ?>"
+                               target="gcalendar">Add <?= $stage ?> to Google</a></td>
+                        <td><a class="button" href="<?= $url ?>">Get <?= $stage ?> iCal</a></td>
+                    </tr>
+                    <?php
+                }
+                ?>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <section id="text">
-        <h2>Adding to your own calendar</h2>
-        <div class="content">
+        <h2>
+            <div class="container">Adding to your own calendar</div>
+        </h2>
+        <div class="container">
             <p>Above are links to each stage's timetable in iCal (ICS) format.</p>
             <p>You can import it in any calendar app you want.</p>
             <p>I recommend adding each stage as a separate calendar (so each has its own color etc), but there is also
@@ -197,14 +227,15 @@ if (@strlen($_REQUEST['stage']) > 1) {
                 copy); this way it will auto-update as well.</p>
 
             <h3>It will look like this...</h3>
-
-            <img loading="lazy" src="img/shortgcal-min.png" width="876" height="479"/>
+            <img loading="lazy" src="img/shortgcal-min.png?ssid=<?= $ssid ?>" width="1264"/>
         </div>
     </section>
 
     <section id="clashfinder">
-        <h2>Backing Data</h2>
-        <div class="content">
+        <h2>
+            <div class="container">Backing Data</div>
+        </h2>
+        <div class="container">
             <p>All the backing data is stored in ClashFinder.</p>
             <p>Thanks to the people who started it and keep it updated.</p>
             <p>Check it out: <a href="https://clashfinder.com/s/psyfiseedsofscience/" target="clashfinder">Psy Fi Seeds
@@ -212,33 +243,33 @@ if (@strlen($_REQUEST['stage']) > 1) {
             <p>You can also check all the <a href="https://clashfinder.com/l/psyfiseedsofscience/?revs"
                                              target="clashfinder">changes</a> made over time.</p>
         </div>
-
-
     </section>
 
-    <section id="single">
-        <h2>All-stages calendar</h2>
+    <!-- <section id="single">
+        <h2><div class="container">All-stages calendar</div></h2>
 
-        <div class="content">
+        <div class="container">
             <?php
-            $url = "{$baseUrl}?stage=" . urlencode("ALL");
-            ?>
+    $url = "{$baseUrl}?stage=" . urlencode("ALL");
+    ?>
             <p>Also, there's this version with all stages in a single calendar: <a href="<?php echo $url ?>">All stages
                     (bit confusing)</a>.</p>
+            <?php showInstallButton($showInstallButtonLater); ?>
+
         </div>
-    </section>
-
-    <?php showInstallButton($showInstallButtonLater); ?>
-
+    </section> -->
 
     <footer>
-        made with 💚 by <a href="mailto:ricardo@pardini.net">rpardini</a> & <a href="mailto:dine@dine.tk">dine</a>
-        💚️<br/>
-        fluid simulation by <a href="https://github.com/PavelDoGreat">PavelDoGreat</a>
+        <div class="container">
+            <div>made with 💚 by <a href="mailto:ricardo@pardini.net">rpardini</a> & <a
+                        href="mailto:dine@dine.tk">dine</a>💚️
+            </div>
+            <div>fluid simulation by <a href="https://github.com/PavelDoGreat">PavelDoGreat</a></div>
+        </div>
     </footer>
 
     <?= scriptTagWithInlineScript('js/fluid-config.js') ?>
-    <script async src="fluid/script.js?vid=<?= $vid ?>"></script>
+    <script async src="fluid/script.js?flsid=<?= $flsid ?>"></script>
 
     </body>
     </html>
@@ -257,13 +288,11 @@ function showInstallButton($ifCondition) {
 
 function show3Data($act) {
     if (!$act) {
-        return "<div class='act'>&mdash;&mdash;&emptyset;&mdash;&mdash;</div>";
+        return "<div class='act'>--</div>";
     }
 
-    return "<div class='act'>"
-        . "<span class='acttime'>" . showTimespan($act['ts_start'], $act['ts_end']) . "</span>"
-        . "<span class='actname'>" . $act['what'] . "</span>"
-        . "</div>";
+    return "<div>" . showTimespan($act['ts_start'], $act['ts_end']) . "</div>"
+        . "<div class='color-rotate'>" . $act['what'] . "</div>";
 }
 
 function showTimespan($startObj, $endObj) {
@@ -272,9 +301,9 @@ function showTimespan($startObj, $endObj) {
 
     // First and easiest case is if both are on the same day...
     if ($dayStart == $dayEnd) {
-        return strftime("[%a]%H:%M", $startObj['ts']) . "-" . strftime("%H:%M", $endObj['ts']);
+        return strftime("[%a] %H:%M", $startObj['ts']) . "-" . strftime("%H:%M", $endObj['ts']);
     }
     // If not on the same day gotta indicate both.
-    return strftime("[%a]%H:%M", $startObj['ts']) . "-" . strftime("%H:%M[%a]", $endObj['ts']);
+    return strftime("[%a] %H:%M", $startObj['ts']) . "-" . strftime("%H:%M[%a]", $endObj['ts']);
 
 }

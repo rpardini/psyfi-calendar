@@ -782,6 +782,15 @@ let colorUpdateTimer = 0.0;
 
 window.fluidHasStarted = false;
 
+function randomSplatsAndSeconds() {
+    let splats = Math.floor(Math.random() * 3) + 1;
+    let millis = (Math.floor(Math.random() * 12) + 3) * 1000;
+
+    console.log("splats", splats, "millis", millis);
+    multipleSplats(splats);
+    setTimeout(randomSplatsAndSeconds, millis);
+}
+
 function startFluid () {
     if (window.fluidHasStarted) {
         console.log("Fluid has already been started...");
@@ -794,9 +803,7 @@ function startFluid () {
 
     initFramebuffers();
 
-    setInterval(function () {
-        multipleSplats(2);
-    }, 30000);
+    randomSplatsAndSeconds();
 
     lastUpdateTime = Date.now();
     colorUpdateTimer = 0.0;

@@ -1,8 +1,8 @@
 <?php
 date_default_timezone_set('Europe/Amsterdam');
 
-define('CACHE_KEY', "psyfi2019-clashfinder-expiring5");
-define('CACHE_KEY_FALLBACK', "psyfi2019-clashfinder-fallback5");
+define('CACHE_KEY', "psyfi2019-clashfinder-expiring8");
+define('CACHE_KEY_FALLBACK', "psyfi2019-clashfinder-fallback8");
 
 function getClashFinderData() {
     $redis = new Redis();
