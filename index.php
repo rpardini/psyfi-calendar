@@ -120,8 +120,7 @@ if (@strlen($_REQUEST['stage']) > 1) {
     </header>
 
     <section id="timetable">
-        <h2>Line Up / Timetable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $curTS_fmt ?></h2>
-        <h3></h3>
+        <h2>Now and Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $curTS_fmt ?></h2>
 
         <?php
         foreach ($status as $stage => $data) {
@@ -153,7 +152,7 @@ if (@strlen($_REQUEST['stage']) > 1) {
     </section>
 
     <section id="calendars">
-        <h2>Individual Calendars</h2>
+        <h2>Lineup / Timetable / Calendars</h2>
 
         <?php
         foreach ($allStages as $stage) {
