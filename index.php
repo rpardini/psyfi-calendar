@@ -136,7 +136,6 @@ if (@strlen($_REQUEST['stage']) > 1) {
         }
         ?>
 
-        <?php showInstallButton($showInstallButtonLater); ?>
     </section>
 
     <section id="weather">
@@ -229,6 +228,8 @@ if (@strlen($_REQUEST['stage']) > 1) {
         </div>
     </section>
 
+    <?php showInstallButton($showInstallButtonLater); ?>
+
 
     <footer>
         made with 💚 by <a href="mailto:ricardo@pardini.net">rpardini</a> & <a href="mailto:dine@dine.tk">dine</a>
@@ -256,7 +257,7 @@ function showInstallButton($ifCondition) {
 
 function show3Data($act) {
     if (!$act) {
-        return "<div class='act'>&emptyset;</div>";
+        return "<div class='act'>&mdash;&mdash;&emptyset;&mdash;&mdash;</div>";
     }
 
     return "<div class='act'>"
