@@ -1,5 +1,9 @@
 <?php
 
+function scriptTagWithInlineScript($scriptFile) {
+    return "<script type=\"text/javascript\">" . file_get_contents($scriptFile) . "</script>";
+}
+
 function data_uri($file, $mime) {
     $contents = file_get_contents($file);
     $base64 = base64_encode($contents);

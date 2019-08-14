@@ -1,6 +1,12 @@
 <?php
+$isMobile = preg_match("/Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/", $_SERVER['HTTP_USER_AGENT']);
 $baseUrl = "https://psyfi.helaaspindakaas.xyz/";
-
+$autoEnableFluid = !$isMobile;
+$enableExternalFont = true;
+$vid = urlencode(md5(file_get_contents('index.php') . file_get_contents('js/pwa.js') . file_get_contents('js/fluid-config.js')));
+$sid = urlencode(md5(file_get_contents('styles.css') . $vid));
+$mid = urlencode(md5(file_get_contents('manifest.json') . $vid));
+$lid = urlencode(md5(file_get_contents('img/logo.main.png') . $vid));
 require('clashfinder_data.php');
 require('functions.php');
 
@@ -14,18 +20,55 @@ ob_clean();
 if (@strlen($_REQUEST['stage']) > 1) {
     emitIcalForEvents($allActs, $_REQUEST['stage']);
 } else {
-    $curTS = time() + (24 * 60 * 60 * 16) + (9329 * 4);
-    if (@!$_REQUEST['fake']) $curTS = time();
+    $curTS = 1567189119; //time() + (24 * 60 * 60 * 16) + (9329 * 2);
+    //if (@!$_REQUEST['fake']) $curTS = time();
 
-    $curTS_fmt = strftime("[%a]%H:%M", $curTS);
+    $curTS_fmt = strftime("[%a]%H:%M:%S", $curTS);
 
     $status = get3ActsByStage($allActs, $allStages, $curTS);
     header('Content-type: text/html');
     ?>
     <html lang="en">
     <head>
-        <link rel="manifest" href="manifest.json"></link>
-        <meta name="theme-color" content="#0c1d2d" />
+        <title>Psy-Fi 2019</title>
+        <link rel="manifest" href="manifest.json?mid=<?= $mid ?>"/>
+        <meta name="theme-color" content="#0c1d2d"/>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-title" content="Psy-Fi 2019">
+        <link rel="apple-touch-icon" href="img/pwa/icon-192x192.png">
+
+        <link href="img/splashscreens/iphone5_splash.png"
+              media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+              rel="apple-touch-startup-image"/>
+        <link href="img/splashscreens/iphone6_splash.png"
+              media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+              rel="apple-touch-startup-image"/>
+        <link href="img/splashscreens/iphoneplus_splash.png"
+              media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)"
+              rel="apple-touch-startup-image"/>
+        <link href="img/splashscreens/iphonex_splash.png"
+              media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
+              rel="apple-touch-startup-image"/>
+        <link href="img/splashscreens/iphonexr_splash.png"
+              media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"
+              rel="apple-touch-startup-image"/>
+        <link href="img/splashscreens/iphonexsmax_splash.png"
+              media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
+              rel="apple-touch-startup-image"/>
+        <link href="img/splashscreens/ipad_splash.png"
+              media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+              rel="apple-touch-startup-image"/>
+        <link href="img/splashscreens/ipadpro1_splash.png"
+              media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
+              rel="apple-touch-startup-image"/>
+        <link href="img/splashscreens/ipadpro3_splash.png"
+              media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
+              rel="apple-touch-startup-image"/>
+        <link href="img/splashscreens/ipadpro2_splash.png"
+              media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+              rel="apple-touch-startup-image"/>
+
         <meta charset="UTF-8">
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -37,86 +80,26 @@ if (@strlen($_REQUEST['stage']) > 1) {
         <meta property="og:image" content="<?= $baseUrl ?>img/shortgcal-min.png"/>
         <meta property="og:image:width" content="876"/>
         <meta property="og:image:height" content="479"/>
-
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <title>Psy-Fi 2019 timetable // calendar</title>
+        <?php
+        if ($enableExternalFont) {
+            ?>
+            <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+            <?php
+        }
+        ?>
 
-        <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
-
-        <!--
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        -->
-        <style type="text/css">
-            <?= file_get_contents('styles.css')?>
-        </style>
-
-        <script type="text/javascript">
-            // Check compatibility for the browser we're running this in
-            if ("serviceWorker" in navigator) {
-                if (navigator.serviceWorker.controller) {
-                    console.log("[PWA Builder] active service worker found, no need to register");
-                } else {
-                    // Register the service worker
-                    navigator.serviceWorker
-                        .register("pwabuilder-sw.js", {
-                            scope: "./"
-                        })
-                        .then(function (reg) {
-                            console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-                        });
-                }
-            }
-
-            let deferredPrompt = null;
-
-            window.addEventListener('beforeinstallprompt', (e) => {
-                // Prevent Chrome 67 and earlier from automatically showing the prompt
-                e.preventDefault();
-                // Stash the event so it can be triggered later.
-                deferredPrompt = e;
-            });
-
-            async function installPwa () {
-                console.log("Will install PWA...");
-                if (deferredPrompt) {
-                    deferredPrompt.prompt();
-                    console.log(deferredPrompt)
-                    deferredPrompt.userChoice.then(function (choiceResult) {
-
-                        if (choiceResult.outcome === 'accepted') {
-                            console.log('Your PWA has been installed');
-                        } else {
-                            console.log('User chose to not install your PWA');
-                        }
-
-                        deferredPrompt = null;
-
-                    });
-
-
-                }
-            }
-        </script>
+        <link rel="stylesheet" type="text/css" href="styles.css?sid=<?= $sid ?>">
+        <?= scriptTagWithInlineScript('js/pwa.js') ?>
     </head>
     <body>
 
     <canvas></canvas>
 
     <header>
-        <?php
-        if (false) {
-            ?>
-            <div class="logo"><img loading="eager"
-                                   src="<?php echo data_uri('img/logo.supercompress.webp', 'image/webp'); ?>"
-                                   width="255" height="135"/></div>
-            <?php
-        } else {
-            ?>
-            <div class="logo"><img loading="eager" src="img/logo.min.webp" width="255" height="135"/></div>
-            <?php
-        }
-        ?>
+        <div class="logo"><img src="img/logo.main.png?lid=<?= $lid ?>" width="233" height="132"
+                               loading="eager" alt="PsyFi 2019"/></div>
     </header>
 
     <section id="timetable">
@@ -141,12 +124,13 @@ if (@strlen($_REQUEST['stage']) > 1) {
     <section id="weather">
         <h2>Weather</h2>
         <div class="weather">
-            <!--            <iframe src="https://gadgets.buienradar.nl/gadget/weathersymbol" noresize scrolling=no hspace=0 vspace=0 loading="lazy"
+            <!--            <iframe src="https://gadgets.buienradar.nl/gadget/weathersymbol" noresize scrolling=no hspace=0 vspace=0
+                                loading="lazy"
                                 frameborder=0 marginheight=0 marginwidth=0 width=50 height=40></iframe>
             -->        </div>
         <div class="content">
-            <a class="button" href="https://www.buienalarm.nl/leeuwarden-frysl%C3%A2n-nederland/53.2166,5.88365">
-                Check weather for the next hours
+            <a class="button" href="https://www.buienradar.nl/weer/tytsjerk/nl/2746311/14daagse" target="buien">
+                Coming soon! Go check weather yourself for now
             </a>
         </div>
     </section>
@@ -157,8 +141,7 @@ if (@strlen($_REQUEST['stage']) > 1) {
         <?php
         foreach ($allStages as $stage) {
             $url = "{$baseUrl}?stage=" . urlencode($stage);
-            $webCal = str_replace("https://", "webcal://", $url) /*. "&added_inside=" . time()*/
-            ;
+            $webCal = str_replace("https://", "webcal://", $url);
             ?>
             <dl class="dl--wide">
                 <dt>Stage</dt>
@@ -166,9 +149,9 @@ if (@strlen($_REQUEST['stage']) > 1) {
                 <dt>Google</dt>
                 <dd><a class="button"
                        href="https://www.google.com/calendar/render?cid=<?= urlencode($webCal) ?>&added_at=<?= time() ?>"
-                       target="gcalendar">Add</a></td></dd>
+                       target="gcalendar">Add <?= $stage ?> to Google</a></td></dd>
                 <dt>iCal/Outlook</dt>
-                <dd><a class="button" href="<?= $url ?>">Add</a></dd>
+                <dd><a class="button" href="<?= $url ?>">Get <?= $stage ?> iCal</a></dd>
             </dl>
             <?php
         }
@@ -229,7 +212,7 @@ if (@strlen($_REQUEST['stage']) > 1) {
     </section>
 
     <section id="install">
-        <button onclick="installPwa()">Install</button>
+        <a class="button" href="javascript:installPwa()" onclick="installPwa()">Install App</a>
     </section>
 
 
@@ -237,9 +220,14 @@ if (@strlen($_REQUEST['stage']) > 1) {
         by <a href="mailto:ricardo@pardini.net">rpardini</a> & <a href="mailto:dine@dine.tk">dine</a> 💚️
     </footer>
 
-    <script async src="fluid/script.js"></script>
-
-
+    <?php
+    if ($autoEnableFluid) {
+        ?>
+        <?= scriptTagWithInlineScript('js/fluid-config.js') ?>
+        <script async src="fluid/script.js?vid=<?= $vid ?>"></script>
+        <?php
+    }
+    ?>
     </body>
     </html>
     <?php

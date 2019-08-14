@@ -27,30 +27,6 @@ SOFTWARE.
 const canvas = document.getElementsByTagName('canvas')[0];
 // resizeCanvas();
 
-let config = {
-    SIM_RESOLUTION: 128,
-    DYE_RESOLUTION: 512,
-    CAPTURE_RESOLUTION: 512,
-    DENSITY_DISSIPATION: 2,
-    VELOCITY_DISSIPATION: 2,
-    PRESSURE: 0.8,
-    PRESSURE_ITERATIONS: 20,
-    CURL: 30,
-    SPLAT_RADIUS: 0.25,
-    SPLAT_FORCE: 6000,
-    SHADING: true,
-    COLORFUL: false,
-    COLOR_UPDATE_SPEED: 10,
-    PAUSED: false,
-    BACK_COLOR: {r: 0x0c, g: 0x1d, b: 0x2d}, //     background-color: #0C1D2D;
-    TRANSPARENT: false,
-    BLOOM: true,
-    BLOOM_ITERATIONS: 8,
-    BLOOM_RESOLUTION: 256,
-    BLOOM_INTENSITY: 0.8,
-    BLOOM_THRESHOLD: 0.6,
-    BLOOM_SOFT_KNEE: 0.7
-};
 
 function pointerPrototype () {
     this.id = -1;
@@ -73,10 +49,12 @@ pointers.push(new pointerPrototype());
 const {gl, ext} = getWebGLContext(canvas);
 
 if (isMobile()) {
-    config.DYE_RESOLUTION = 512;
+    config.DYE_RESOLUTION = config.MOBILE_DYE_RESOLUTION;
+    config.SIM_RESOLUTION = config.MOBILE_SIM_RESOLUTION;
 }
 if (!ext.supportLinearFiltering) {
-    config.DYE_RESOLUTION = 512;
+    config.DYE_RESOLUTION = config.MOBILE_DYE_RESOLUTION;
+    config.SIM_RESOLUTION = config.MOBILE_SIM_RESOLUTION;
     config.SHADING = false;
     config.BLOOM = false;
 }
@@ -165,6 +143,7 @@ function supportRenderTextureFormat (gl, internalFormat, format, type) {
 }
 
 function isMobile () {
+    //alert(navigator.userAgent + /Mobi|Android/i.test(navigator.userAgent));
     return /Mobi|Android/i.test(navigator.userAgent);
 }
 

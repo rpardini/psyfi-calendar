@@ -1,112 +1,57 @@
 {
-    "dir": "ltr",
-    "lang": "English",
-    "name": "Psy-Fi 2019 timetable // calendar",
-    "scope": "/",
-    "display": "standalone",
-    "start_url": "https://psyfi.helaaspindakaas.xyz/",
-    "short_name": "Psy-Fi 2019",
-    "theme_color": "transparent",
-    "description": "Psy-Fi 2019 now playing, next playing, weather, import iCal ICS Google Calendar Outlook",
-    "orientation": "portrait",
-    "background_color": "transparent",
-    "related_applications": [],
-    "prefer_related_applications": false,
-    "icons": [
-        {
-            "src": "/img/pwa/7264633a-f013-eafa-150e-5d8cfc7b7b9f.webPlatform.png",
-            "sizes": "44x44",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/af57ccdd-169b-4529-36ec-ff0095b4f731.webPlatform.png",
-            "sizes": "48x48",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/701b19b7-c101-f312-b377-234ae320d6b0.webPlatform.png",
-            "sizes": "1240x600",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/655ed5df-9b44-5e70-9512-3899b972f392.webPlatform.png",
-            "sizes": "300x300",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/40d260ea-856e-7df1-2da9-6d0cfac53739.webPlatform.png",
-            "sizes": "150x150",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/53c4636f-0091-e24d-1222-736052e527da.webPlatform.png",
-            "sizes": "88x88",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/39442731-169e-d374-750f-6752711379ac.webPlatform.png",
-            "sizes": "24x24",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/a8ef0b51-51fe-426e-782a-0aed1e49c163.webPlatform.png",
-            "sizes": "50x50",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/87572645-2057-e8d7-b753-5f475184437b.webPlatform.png",
-            "sizes": "620x300",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/5e607b1a-6239-80b2-edb0-dc84de510dfa.webPlatform.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/6f7942e8-b6b3-4572-9047-97140fabb1d8.webPlatform.png",
-            "sizes": "144x144",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/6e621600-760d-b3cb-7ad9-bbf33546fca7.webPlatform.png",
-            "sizes": "96x96",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/d6ca438f-6db7-5585-7505-9d9901e9449d.webPlatform.png",
-            "sizes": "72x72",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/5fe376ef-1f01-fb23-34db-f3d5ce9c45fe.webPlatform.png",
-            "sizes": "36x36",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/f190b9a5-9ff1-eb0e-f74d-c73f10fdee36.webPlatform.png",
-            "sizes": "1024x1024",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/07d393f9-8dcd-70a2-cc92-07ac9632b370.webPlatform.png",
-            "sizes": "180x180",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/f28edd05-3aa3-55c7-ee36-195b75da366d.webPlatform.png",
-            "sizes": "152x152",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/0e6cf96c-89bf-9a6d-0909-e6c97441115f.webPlatform.png",
-            "sizes": "120x120",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/pwa/f0dc67c5-40a3-7cd5-4cee-c6312701ffd0.webPlatform.png",
-            "sizes": "76x76",
-            "type": "image/png"
-        }
-    ]
+  "dir": "ltr",
+  "lang": "English",
+  "name": "PsyFi 2019",
+  "scope": "/",
+  "display": "standalone",
+  "start_url": "https://psyfi.helaaspindakaas.xyz/?pwa=true",
+  "short_name": "PsyFi 2019",
+  "theme_color": "transparent",
+  "description": "PsyFi 2019 now playing, next playing, weather, import iCal ICS Google Calendar Outlook",
+  "orientation": "portrait",
+  "background_color": "transparent",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/img/pwa/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/pwa/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/pwa/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/pwa/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/pwa/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/pwa/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/pwa/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/pwa/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
