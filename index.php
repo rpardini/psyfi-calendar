@@ -24,6 +24,8 @@ if (@strlen($_REQUEST['stage']) > 1) {
     ?>
     <html lang="en">
     <head>
+        <link rel="manifest" href="manifest.json"></link>
+        <meta name="theme-color" content="#0c1d2d" />
         <meta charset="UTF-8">
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -40,7 +42,7 @@ if (@strlen($_REQUEST['stage']) > 1) {
 
         <title>Psy-Fi 2019 timetable // calendar</title>
 
-        <!--<link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">-->
+        <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
 
         <!--
         <link rel="stylesheet" type="text/css" href="styles.css">
@@ -49,22 +51,54 @@ if (@strlen($_REQUEST['stage']) > 1) {
             <?= file_get_contents('styles.css')?>
         </style>
 
-        <!--        <script type="text/javascript">
-                    WebFontConfig = {
-                        google: {families: ['Barlow']}
-                    };
-                    (function () {
-                        var wf = document.createElement('script');
-                        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-                            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-                        wf.type = 'text/javascript';
-                        wf.async = 'true';
-                        var s = document.getElementsByTagName('script')[0];
-                        s.parentNode.insertBefore(wf, s);
-                    })();
-                    // ]]>
-                </script>
-        -->    </head>
+        <script type="text/javascript">
+            // Check compatibility for the browser we're running this in
+            if ("serviceWorker" in navigator) {
+                if (navigator.serviceWorker.controller) {
+                    console.log("[PWA Builder] active service worker found, no need to register");
+                } else {
+                    // Register the service worker
+                    navigator.serviceWorker
+                        .register("pwabuilder-sw.js", {
+                            scope: "./"
+                        })
+                        .then(function (reg) {
+                            console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+                        });
+                }
+            }
+
+            let deferredPrompt = null;
+
+            window.addEventListener('beforeinstallprompt', (e) => {
+                // Prevent Chrome 67 and earlier from automatically showing the prompt
+                e.preventDefault();
+                // Stash the event so it can be triggered later.
+                deferredPrompt = e;
+            });
+
+            async function installPwa () {
+                console.log("Will install PWA...");
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    console.log(deferredPrompt)
+                    deferredPrompt.userChoice.then(function (choiceResult) {
+
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('Your PWA has been installed');
+                        } else {
+                            console.log('User chose to not install your PWA');
+                        }
+
+                        deferredPrompt = null;
+
+                    });
+
+
+                }
+            }
+        </script>
+    </head>
     <body>
 
     <canvas></canvas>
@@ -73,7 +107,8 @@ if (@strlen($_REQUEST['stage']) > 1) {
         <?php
         if (false) {
             ?>
-            <div class="logo"><img loading="eager" src="<?php echo data_uri('img/logo.supercompress.webp', 'image/webp'); ?>"
+            <div class="logo"><img loading="eager"
+                                   src="<?php echo data_uri('img/logo.supercompress.webp', 'image/webp'); ?>"
                                    width="255" height="135"/></div>
             <?php
         } else {
@@ -194,11 +229,17 @@ if (@strlen($_REQUEST['stage']) > 1) {
         </div>
     </section>
 
+    <section id="install">
+        <button onclick="installPwa()">Install</button>
+    </section>
+
+
     <footer>
         by <a href="mailto:ricardo@pardini.net">rpardini</a> & <a href="mailto:dine@dine.tk">dine</a> 💚️
     </footer>
 
     <script async src="fluid/script.js"></script>
+
 
     </body>
     </html>
