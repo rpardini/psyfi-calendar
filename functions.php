@@ -4,12 +4,27 @@ function scriptTagWithInlineScript($scriptFile) {
     return "<script type=\"text/javascript\">" . file_get_contents($scriptFile) . "</script>";
 }
 
+function getSiteTitle() {
+    if ($_SERVER['HTTP_HOST'] === "psyfi.helaaspindakaas.xyz") {
+        return "Psy-Fi 2019";
+    }
+    return "Psy-Fi 2019 STG";
+}
+
 function data_uri($file, $mime) {
     $contents = file_get_contents($file);
     $base64 = base64_encode($contents);
     return ('data:' . $mime . ';base64,' . $base64);
 }
 
+function cacheBusterLink($file) {
+    $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/";
+    if (!file_exists($file)) throw new Exception("File $file does not exist!");
+    $mtime = filemtime($file);
+    if ($mtime === false) throw new Exception("Could not get mtime for file $file");
+    $md5 = md5($mtime);
+    return $baseUrl . $file . "?cb=" . $md5;
+}
 
 function get3ActsByStage($allActs, $allStages, $curTS) {
     $byStage = splitByStageOrderByTs($allActs, $allStages);

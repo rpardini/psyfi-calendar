@@ -1,5 +1,4 @@
 <?php
-
 $isMobile = preg_match("/Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/", $_SERVER['HTTP_USER_AGENT']);
 $isAndroid = preg_match("/Android/", $_SERVER['HTTP_USER_AGENT']);
 $isChrome = preg_match("/Chrome/", $_SERVER['HTTP_USER_AGENT']);
@@ -8,15 +7,13 @@ $isPwaInstalled = @$_REQUEST['pwa'] === "true" ? 1 : 0;
 $showInstallButtonTop = (!$isPwaInstalled) && (($isMobile && ($isAndroid)));
 $showInstallButtonLater = (!$isPwaInstalled) && ((!$isMobile && ($isChrome)));
 
-$baseUrl = "https://psyfi.helaaspindakaas.xyz/";
+$viewPort = $isMobile ? "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    : "width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0";
+
+$baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/";
 $autoEnableFluid = !$isMobile;
 $enableExternalFont = true;
-$vid = urlencode(md5(file_get_contents('index.php') . file_get_contents('js/pwa.js') . file_get_contents('js/fluid-config.js')));
-$sid = urlencode(md5(file_get_contents('styles.css') . $vid));
-$mid = urlencode(md5(file_get_contents('manifest.json') . $vid));
-$lid = urlencode(md5(file_get_contents('img/logo.main.png') . $vid));
-$ssid = urlencode(md5(file_get_contents('img/shortgcal-min.png') . $vid));
-$flsid = urlencode(md5(file_get_contents('fluid/script.js') . $vid));
+
 require('clashfinder_data.php');
 require('functions.php');
 
@@ -36,60 +33,64 @@ if (@strlen($_REQUEST['stage']) > 1) {
     $curTS_fmt = strftime("[%a] %H:%M:%S", $curTS);
 
     $status = get3ActsByStage($allActs, $allStages, $curTS);
+    $actsByStage = splitByStageOrderByTs($allActs, $allStages);
     header('Content-type: text/html');
+    header('Cache-Control: private, max-age=0');
     ?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <title>Psy-Fi 2019</title>
-        <link rel="manifest" href="manifest.json?mid=<?= $mid ?>"/>
+        <title><?= getSiteTitle() ?></title>
+        <link rel="manifest" href="<?= cacheBusterLink("manifest.json.php") ?>"/>
         <meta name="theme-color" content="#0c1d2d"/>
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <meta name="apple-mobile-web-app-title" content="Psy-Fi 2019">
-        <link rel="apple-touch-icon" href="img/pwa/icon-192x192.png">
-        <link rel="icon" href="img/pwa/icon-128x128.png">
+        <meta name="apple-mobile-web-app-title" content="<?= getSiteTitle() ?>">
+        <link rel="apple-touch-icon" href="<?= cacheBusterLink("img/pwa/icon-192x192.png") ?>">
+        <link rel="icon" href="<?= cacheBusterLink("img/pwa/icon-128x128.png") ?>">
 
-        <link href="img/splashscreens/iphone5_splash.png"
+        <link href="<?= cacheBusterLink("img/splashscreens/iphone5_splash.png") ?>"
               media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
               rel="apple-touch-startup-image"/>
-        <link href="img/splashscreens/iphone6_splash.png"
+        <link href="<?= cacheBusterLink("img/splashscreens/iphone6_splash.png") ?>"
               media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
               rel="apple-touch-startup-image"/>
-        <link href="img/splashscreens/iphoneplus_splash.png"
+        <link href="<?= cacheBusterLink("img/splashscreens/iphoneplus_splash.png") ?>"
               media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)"
               rel="apple-touch-startup-image"/>
-        <link href="img/splashscreens/iphonex_splash.png"
+        <link href="<?= cacheBusterLink("img/splashscreens/iphonex_splash.png") ?>"
               media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
               rel="apple-touch-startup-image"/>
-        <link href="img/splashscreens/iphonexr_splash.png"
+        <link href="<?= cacheBusterLink("img/splashscreens/iphonexr_splash.png") ?>"
               media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"
               rel="apple-touch-startup-image"/>
-        <link href="img/splashscreens/iphonexsmax_splash.png"
+        <link href="<?= cacheBusterLink("img/splashscreens/iphonexsmax_splash.png") ?>"
               media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
               rel="apple-touch-startup-image"/>
-        <link href="img/splashscreens/ipad_splash.png"
+        <link href="<?= cacheBusterLink("img/splashscreens/ipad_splash.png") ?>"
               media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
               rel="apple-touch-startup-image"/>
-        <link href="img/splashscreens/ipadpro1_splash.png"
+        <link href="<?= cacheBusterLink("img/splashscreens/ipadpro1_splash.png") ?>"
               media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
               rel="apple-touch-startup-image"/>
-        <link href="img/splashscreens/ipadpro3_splash.png"
+        <link href="<?= cacheBusterLink("img/splashscreens/ipadpro3_splash.png") ?>"
               media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
               rel="apple-touch-startup-image"/>
-        <link href="img/splashscreens/ipadpro2_splash.png"
+        <link href="<?= cacheBusterLink("img/splashscreens/ipadpro2_splash.png") ?>"
               media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
               rel="apple-touch-startup-image"/>
 
         <meta charset="UTF-8">
         <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+              content="<?= $viewPort ?>">
         <meta property="og:url" content="<?= $baseUrl ?>"/>
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Psy-Fi 2019 Now/Next playing, timetables and calendars"/>
+        <meta property="og:title" content="<?= getSiteTitle() ?> Now/Next playing, timetables and calendars"/>
         <meta property="og:description"
-              content="Psy-Fi 2019 now playing, next playing, weather, import iCal ICS Google Calendar, Outlook"/>
-        <meta property="og:image" content="<?= $baseUrl ?>img/screenshot1.png"/>
+              content="<?= getSiteTitle() ?> now playing, next playing, weather, import iCal ICS Google Calendar, Outlook"/>
+        <meta name="Description"
+              content="<?= getSiteTitle() ?> now playing, next playing, weather, import iCal ICS Google Calendar, Outlook">
+        <meta property="og:image" content="<?= cacheBusterLink("img/screenshot1.png") ?>"/>
         <meta property="og:image:width" content="876"/>
         <meta property="og:image:height" content="479"/>
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -102,11 +103,16 @@ if (@strlen($_REQUEST['stage']) > 1) {
         }
         ?>
 
-        <link rel="stylesheet" type="text/css" href="styles.css?sid=<?= $sid ?>">
-        <?= scriptTagWithInlineScript('js/pwa.js') ?>
+        <link rel="stylesheet" type="text/css" href="<?= cacheBusterLink("styles.css") ?>">
         <script type="text/javascript">
+            window.serviceWorkerWithCacheBuster = "<?= cacheBusterLink("psyfi-serviceworker.js")?>";
+            window.fluidPatternFile = "<?= cacheBusterLink("fluid/LDR_LLL1_0.png")?>";
             window.autoStartFluid = <?=$autoEnableFluid ? "true" : "false"?>;
+            window.actsByStage = <?=json_encode($actsByStage)?>;
+            window.stages = <?=json_encode($allStages)?>;
+            console.log(window.actsByStage);
         </script>
+        <?= scriptTagWithInlineScript('js/pwa.js') ?>
     </head>
     <body>
 
@@ -115,9 +121,9 @@ if (@strlen($_REQUEST['stage']) > 1) {
     <canvas></canvas>
 
     <header>
-        <div class="logo"><img id="logo" src="img/logo.main.png?lid=<?= $lid ?>" width="233" height="132"
+        <div class="logo"><img id="logo" src="<?= cacheBusterLink("img/logo.main.png") ?>" width="233" height="132"
                                loading="eager"
-                               alt="PsyFi 2019" <?= $autoEnableFluid ? "" : "onclick=\"startFluid()\" class=\"withPointerEvents\"" ?>/>
+                               alt="<?= getSiteTitle() ?>" <?= $autoEnableFluid ? "" : "onclick=\"startFluid()\" class=\"withPointerEvents\"" ?>/>
         </div>
     </header>
 
@@ -227,7 +233,8 @@ if (@strlen($_REQUEST['stage']) > 1) {
                 copy); this way it will auto-update as well.</p>
 
             <h3>It will look like this...</h3>
-            <img loading="lazy" src="img/shortgcal-min.png?ssid=<?= $ssid ?>" width="1264"/>
+            <img loading="lazy" alt="Example Google Calendar" src="<?= cacheBusterLink("img/shortgcal-min.png") ?>"
+                 width="1264"/>
         </div>
     </section>
 
@@ -269,7 +276,7 @@ if (@strlen($_REQUEST['stage']) > 1) {
     </footer>
 
     <?= scriptTagWithInlineScript('js/fluid-config.js') ?>
-    <script async src="fluid/script.js?flsid=<?= $flsid ?>"></script>
+    <script async src="<?= cacheBusterLink("fluid/script.js") ?>"></script>
 
     </body>
     </html>

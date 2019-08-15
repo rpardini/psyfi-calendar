@@ -5,7 +5,7 @@ if ("serviceWorker" in navigator) {
     } else {
         // Register the service worker
         navigator.serviceWorker
-            .register("psyfi-serviceworker.js", {
+            .register(window.serviceWorkerWithCacheBuster, {
                 scope: "./"
             })
             .then(function (reg) {

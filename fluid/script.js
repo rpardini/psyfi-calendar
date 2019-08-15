@@ -594,7 +594,7 @@ let curl;
 let pressure;
 let bloom;
 
-let ditheringTexture = createTextureAsync('fluid/LDR_LLL1_0.png');
+let ditheringTexture = createTextureAsync(window.fluidPatternFile);
 
 const copyProgram = new GLProgram(baseVertexShader, copyShader);
 const clearProgram = new GLProgram(baseVertexShader, clearShader);
@@ -782,7 +782,7 @@ let colorUpdateTimer = 0.0;
 
 window.fluidHasStarted = false;
 
-function randomSplatsAndSeconds() {
+function randomSplatsAndSeconds () {
     let splats = Math.floor(Math.random() * 3) + 1;
     let millis = (Math.floor(Math.random() * 12) + 3) * 1000;
 
