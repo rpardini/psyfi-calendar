@@ -69,7 +69,7 @@ function parseClashFinderDate($str) {
     if ($ts_startObj === false) throw new Exception("Could not parse date: $str");
     $ts_start = $ts_startObj->getTimestamp();
     $reformat = strftime("%d/%a[%H:%M]", $ts_start);
-    return array('ts' => $ts_start, 'format' => $reformat, 'obj' => $ts_startObj);
+    return array('ts' => $ts_start, 'format' => $reformat);
 }
 
 
