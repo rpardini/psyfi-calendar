@@ -338,56 +338,56 @@ thead tr, th {
     text-transform: uppercase;
 }
 
-tbody tr:nth-of-type(odd) { 
+tbody tr:nth-of-type(odd) {
     background: rgba(255, 255, 255, 0.04);
 }
 
-td, th { 
-    padding: 10px 15px; 
+td, th {
+    padding: 10px 15px;
     border: 1px solid rgba(255, 255, 255, 0.07);
-    text-align: left; 
+    text-align: left;
 }
 
 @media only screen and (max-width: 760px) {
 
 	/* Force table to not be like tables anymore */
-	table, thead, tbody, th, td, tr { 
-		display: block; 
+	table, thead, tbody, th, td, tr {
+		display: block;
 	}
-	
+
 	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr { 
+	thead tr {
 		position: absolute;
 		top: -9999px;
 		left: -9999px;
 	}
-	
-	td, th { 
+
+	td, th {
 		/* Behave  like a "row" */
 		border: none;
 		position: relative;
-		padding-left: 30%; 
+		padding-left: 30%;
     }
-    
+
     .table--wide td, .table--wide th {
         padding-left: 10px;
     }
-	
-	td:before { 
+
+	td:before {
 		/* Now like a table header */
 		position: absolute;
 		/* Top/left values mimic padding */
         top: 10px;
         left: 15px;
-		width: 45%; 
-		padding-right: 10px; 
+		width: 45%;
+		padding-right: 10px;
 		white-space: nowrap;
 	}
-	
+
 	/*
 	Label the data
 	*/
-	td::before { 
+	td::before {
         content: attr(data-before);
         text-transform: uppercase;
     }
@@ -472,6 +472,11 @@ dd {
 .color-rotate {
     color: #CCE4A0;
     animation: colorRotate 30s linear infinite;
+}
+
+.beginIn {
+    font-style: italic;
+    color: silver;
 }
 
 /* sections and footer actually dont trigger the effect. in practice only logo does */

@@ -104,7 +104,10 @@ if (@strlen($_REQUEST['stage']) > 1) {
         ?>
 
         <link rel="stylesheet" type="text/css" href="<?= cacheBusterLink("styles.css") ?>">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.runtime.min.js"></script>
         <script type="text/javascript">
+            window.fakeTimeForNow = <?= (@!$_REQUEST['fake']) ? "null" : 1567189119 ?> ;
             window.serviceWorkerWithCacheBuster = "<?= cacheBusterLink("psyfi-serviceworker.js")?>";
             window.fluidPatternFile = "<?= cacheBusterLink("fluid/LDR_LLL1_0.png")?>";
             window.autoStartFluid = <?=$autoEnableFluid ? "true" : "false"?>;
@@ -139,28 +142,32 @@ if (@strlen($_REQUEST['stage']) > 1) {
                 Weather
             </a>
 
-
-            <table>
-                <thead>
-                <th><?= $curTS_fmt ?></th>
-                <td>Now</td>
-                <td>Next</td>
-                </thead>
-
-                <tbody>
-                <?php
-                foreach ($status as $stage => $data) {
+            <div id="table-now-next">
+                <?php if (true) {
                     ?>
-                    <tr>
-                        <th><?= $stage ?></th>
-                        <td data-before="Now"><?= show3Data($data['now']) ?></td>
-                        <td data-before="Next"><?= show3Data($data['next']) ?></td>
-                    </tr>
-                    <?php
-                }
-                ?>
-                </tbody>
-            </table>
+                    <table>
+                        <thead>
+                        <th><?= $curTS_fmt ?></th>
+                        <td>Now</td>
+                        <td>Next</td>
+                        </thead>
+
+                        <tbody>
+                        <?php
+                        foreach ($status as $stage => $data) {
+                            ?>
+                            <tr>
+                                <th><?= $stage ?></th>
+                                <td data-before="Now"><?= show3Data($data['now']) ?></td>
+                                <td data-before="Next"><?= show3Data($data['next']) ?></td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                <?php } ?>
+            </div>
         </div>
     </section>
 
@@ -274,6 +281,9 @@ if (@strlen($_REQUEST['stage']) > 1) {
             <div>fluid simulation by <a href="https://github.com/PavelDoGreat">PavelDoGreat</a></div>
         </div>
     </footer>
+
+    <?= scriptTagWithInlineScript('js/templates.compiled.js') ?>
+    <?= scriptTagWithInlineScript('js/calendar.js') ?>
 
     <?= scriptTagWithInlineScript('js/fluid-config.js') ?>
     <script async src="<?= cacheBusterLink("fluid/script.js") ?>"></script>
