@@ -19,9 +19,9 @@ function data_uri($file, $mime) {
 
 function cacheBusterLink($file) {
     $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/";
-    if (!file_exists($file)) throw new Exception("File $file does not exist!");
+    //if (!file_exists($file)) throw new Exception("File $file does not exist!");
     $mtime = filemtime($file);
-    if ($mtime === false) throw new Exception("Could not get mtime for file $file");
+    //if ($mtime === false) throw new Exception("Could not get mtime for file $file");
     $md5 = md5($mtime);
     return $baseUrl . $file . "?cb=" . $md5;
 }

@@ -5,7 +5,8 @@ self.addEventListener("install", function (event) {
     console.log("[PWA Builder] Install Event processing");
     event.waitUntil(
         caches.open(CACHE).then(function (cache) {
-            console.log("[PWA Builder] Cached offline page during install");
+            console.log("[PWA Builder] Cached offline page during install: /?pwa=true");
+            return cache.add("/?pwa=true");
         })
     );
 });
