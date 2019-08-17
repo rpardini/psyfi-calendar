@@ -13,7 +13,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/";
   "short_name": "<?= getSiteTitle() ?>",
   "theme_color": "#0c1d2d",
   "description": "<?= getSiteTitle() ?> now playing, next playing, weather, import iCal ICS Google Calendar Outlook",
-  "orientation": "portrait",
+  "orientation": "any",
   "background_color": "#0c1d2d",
   "related_applications": [],
   "prefer_related_applications": false,
