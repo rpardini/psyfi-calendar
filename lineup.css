@@ -3,9 +3,14 @@
  *************************/
 
 .too_high {
-    max-height: 85vh;
+    max-height: 55vh;
     overflow: auto;
 }
+
+.too_high::-webkit-scrollbar {
+    width: 0 !important
+}
+
 
 .schedule {
     display: grid;

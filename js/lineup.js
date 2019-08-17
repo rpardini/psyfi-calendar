@@ -73,7 +73,7 @@ function updateLineUp (currTS) {
     let timeStyles = "";
     for (let oneTime = lowTime; oneTime < highTime + 1; oneTime = oneTime + (60 * 30)) {
         let fmt = moment.unix(oneTime).format('dddHHmm');
-        let timeCSS = "[time-" + fmt + "] 1fr ";
+        let timeCSS = "[time-" + fmt + "] 0.6fr ";
         timeStyles = timeStyles + timeCSS;
     }
     document.getElementById('lineupstyle').innerText = "" +
@@ -117,6 +117,6 @@ function doUpdateTableLineUp () {
     }
 }
 
-// update now and every minute from now.
+// update now and every 30 minutes from now.
 doUpdateTableLineUp();
-//setInterval(doUpdateTableLineUp, 60 * 1000);
+setInterval(doUpdateTableLineUp, 30 * 60 * 1000);
