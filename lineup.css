@@ -37,21 +37,21 @@
 }
 
 .track-1 {
-    background-color: #1259B2;
+    background-color: rgba(18, 89, 220, 0.55);
     color: #fff;
 }
 
 .track-2 {
-    background-color: #687f00;
+    background-color: rgba(104, 160, 0, 0.55);
     color: #fff;
 }
 
 .track-3 {
-    background-color: #544D69;
+    background-color: rgba(84, 77, 77, 0.55);
     color: #fff;
 }
 
 .track-4 {
-    background-color: #c35500;
+    background-color: rgba(255, 85, 0, 0.55);
     color: #fff;
 }
