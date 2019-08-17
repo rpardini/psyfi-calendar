@@ -433,7 +433,7 @@ dd {
 
 .container {
     position: relative;
-    max-width: 876px;
+    max-width: 1024px;
     margin: 0 auto;
     padding: 10px;
 }

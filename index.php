@@ -104,6 +104,7 @@ if (@strlen($_REQUEST['stage']) > 1) {
         ?>
 
         <link rel="stylesheet" type="text/css" href="<?= cacheBusterLink("styles.css") ?>">
+        <link rel="stylesheet" type="text/css" href="<?= cacheBusterLink("lineup.css") ?>">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.runtime.min.js"></script>
         <script type="text/javascript">
@@ -183,9 +184,27 @@ if (@strlen($_REQUEST['stage']) > 1) {
         </div>
     </section> -->
 
+    <style id="lineupstyle" type="text/css">
+        .schedule {
+            border: 1px solid red
+        }
+    </style>
+    <section id="lineup">
+        <h2>
+            <div class="container">Lineup</div>
+        </h2>
+
+        <div class="container too_high">
+            <div id="table-lineup" class="schedule">
+                wtf
+            </div>
+        </div>
+    </section>
+
+
     <section id="calendars">
         <h2>
-            <div class="container">Lineup / Timetable / Calendars</div>
+            <div class="container">Timetable / Lineup to Google or other Calendars</div>
         </h2>
 
         <div class="container">
@@ -283,7 +302,8 @@ if (@strlen($_REQUEST['stage']) > 1) {
     </footer>
 
     <?= scriptTagWithInlineScript('js/templates.compiled.js') ?>
-    <?= scriptTagWithInlineScript('js/calendar.js') ?>
+    <?= scriptTagWithInlineScript('js/now-next.js') ?>
+    <?= scriptTagWithInlineScript('js/lineup.js') ?>
 
     <?= scriptTagWithInlineScript('js/fluid-config.js') ?>
     <script async src="<?= cacheBusterLink("fluid/script.js") ?>"></script>

@@ -67,7 +67,17 @@ function parseClashFinderDate($str) {
     // 2019-08-28 08:00
     $ts_startObj = date_create_from_format("Y-n-j G:i", $str);
     if ($ts_startObj === false) throw new Exception("Could not parse date: $str");
+
     $ts_start = $ts_startObj->getTimestamp();
+    // Fix: some acts are said to end on minute 59 or 29 to "avoid clashes" but that's stupid.
+    // detect that case and add a minute.
+
+    $minute = date("i", $ts_start);
+    //echo "Minute: $minute \n";
+    if ( ($minute == 59) || ($minute == 29)) {
+        $ts_start = $ts_start + 60;
+    }
+
     $reformat = strftime("%d/%a[%H:%M]", $ts_start);
     return array('ts' => $ts_start, 'format' => $reformat);
 }

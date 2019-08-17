@@ -1,10 +1,8 @@
 function showTimespan (moStart, moEnd) {
     if (moStart.dayOfYear() === moEnd.dayOfYear()) {
-        return "[" + moStart.format("ddd") + "]" + " " + moStart.format("HH") + ":" + moStart.format("mm")
-            + "-" + moEnd.format("HH") + ":" + moEnd.format("mm")
+        return moStart.format("[[]ddd[]] HH:mm") + "-" + moEnd.format("HH:mm");
     }
-    return "[" + moStart.format("ddd") + "]" + " " + moStart.format("HH") + ":" + moStart.format("mm")
-        + "-" + "[" + moEnd.format("ddd") + "]" + " " + moEnd.format("HH") + ":" + moEnd.format("mm")
+    return moStart.format("[[]ddd[]] HH:mm") + "-" + moEnd.format("[[]ddd[]] HH:mm");
 }
 
 
@@ -14,6 +12,7 @@ function prepareActForTNN (od, currTS, verb) {
     let moEnd = moment.unix(od["ts_end"]["ts"]);
     od.when = showTimespan(moStart, moEnd);
     od.moStart = moStart;
+    od.moEnd = moEnd;
     od.fromNow = "(" + verb + " " + moStart.from(currTS) + ")";
     return od;
 }

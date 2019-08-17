@@ -1,0 +1,52 @@
+/*************************
+ * GRID SCHEDULE LAYOUT
+ *************************/
+
+.too_high {
+    max-height: 85vh;
+    overflow: auto;
+}
+
+.schedule {
+    display: grid;
+    grid-gap: 0.5em;
+}
+
+.session {
+    border-radius: .2em;
+    padding: 0 .3em;
+}
+
+.session-title, .session-time, .session-track {
+    display: block;
+}
+
+.session-title {
+    color: #CCE4A0;
+    animation: colorRotate 30s linear infinite;
+    font-size: 103%;
+}
+
+.session-track {
+    font-size: 80%;
+}
+
+.track-1 {
+    background-color: #1259B2;
+    color: #fff;
+}
+
+.track-2 {
+    background-color: #687f00;
+    color: #fff;
+}
+
+.track-3 {
+    background-color: #544D69;
+    color: #fff;
+}
+
+.track-4 {
+    background-color: #c35500;
+    color: #fff;
+}
