@@ -91,9 +91,9 @@ if (@strlen($_REQUEST['stage']) > 1) {
         <meta property="og:description" content="<?= htmlentities($siteDesc) ?>"/>
         <meta name="Description"
               content="<?= htmlentities($siteDesc) ?>">
-        <meta property="og:image" content="<?= cacheBusterLink("img/screenshot1.png") ?>"/>
-        <meta property="og:image:width" content="876"/>
-        <meta property="og:image:height" content="479"/>
+        <meta property="og:image" content="<?= cacheBusterLink("img/screenshot2.png") ?>"/>
+        <meta property="og:image:width" content="1200"/>
+        <meta property="og:image:height" content="1200"/>
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <?php
