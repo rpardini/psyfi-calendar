@@ -350,44 +350,44 @@ td, th {
 
 @media only screen and (max-width: 760px) {
 
-	/* Force table to not be like tables anymore */
-	table, thead, tbody, th, td, tr {
-		display: block;
-	}
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
 
-	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr {
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
 
-	td, th {
-		/* Behave  like a "row" */
-		border: none;
-		position: relative;
-		padding-left: 30%;
+    td, th {
+        /* Behave  like a "row" */
+        border: none;
+        position: relative;
+        padding-left: 30%;
     }
 
     .table--wide td, .table--wide th {
         padding-left: 10px;
     }
 
-	td:before {
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
         top: 10px;
         left: 15px;
-		width: 45%;
-		padding-right: 10px;
-		white-space: nowrap;
-	}
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
 
-	/*
-	Label the data
-	*/
-	td::before {
+    /*
+    Label the data
+    */
+    td::before {
         content: attr(data-before);
         text-transform: uppercase;
     }
@@ -429,6 +429,10 @@ dd {
     text-align: center;
     padding-top: 1rem;
     animation: colorRotate 30s linear infinite;
+}
+
+.qrcode {
+    margin-top: 0.5em;
 }
 
 .container {

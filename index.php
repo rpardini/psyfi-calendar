@@ -6,6 +6,7 @@ $isPwaInstalled = @$_REQUEST['pwa'] === "true" ? 1 : 0;
 
 $showInstallButtonTop = (!$isPwaInstalled) && (($isMobile && ($isAndroid)));
 $showInstallButtonLater = (!$isPwaInstalled) && ((!$isMobile && ($isChrome)));
+$showShare = $isMobile && $isAndroid;
 
 $viewPort = $isMobile ? "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     : "width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0";
@@ -19,6 +20,7 @@ require('functions.php');
 
 ob_start();
 
+$siteDesc = getSiteTitle() . " festival app with now/next playing, lineup, timetables, calendar exports...";
 $allActs = getAllActsFromClashFinder();
 $allStages = getAllStages($allActs);
 
@@ -85,11 +87,10 @@ if (@strlen($_REQUEST['stage']) > 1) {
               content="<?= $viewPort ?>">
         <meta property="og:url" content="<?= $baseUrl ?>"/>
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="<?= getSiteTitle() ?> Now/Next playing, timetables and calendars"/>
-        <meta property="og:description"
-              content="<?= getSiteTitle() ?> now playing, next playing, weather, import iCal ICS Google Calendar, Outlook"/>
+        <meta property="og:title" content="<?= getSiteTitle() ?>"/>
+        <meta property="og:description" content="<?= htmlentities($siteDesc) ?>"/>
         <meta name="Description"
-              content="<?= getSiteTitle() ?> now playing, next playing, weather, import iCal ICS Google Calendar, Outlook">
+              content="<?= htmlentities($siteDesc) ?>">
         <meta property="og:image" content="<?= cacheBusterLink("img/screenshot1.png") ?>"/>
         <meta property="og:image:width" content="876"/>
         <meta property="og:image:height" content="479"/>
@@ -108,6 +109,10 @@ if (@strlen($_REQUEST['stage']) > 1) {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.runtime.min.js"></script>
         <script type="text/javascript">
+            async function share () {
+                sharePWA("<?=getSiteTitle()?>", "Check out this <?=getSiteTitle()?> app! 😍 Touch the logo and then drag for trippy visuals! ", "<?=$baseUrl?>")
+            }
+
             window.fakeTimeForNow = <?= (@!$_REQUEST['fake']) ? "null" : 1567189119 ?> ;
             window.serviceWorkerWithCacheBuster = "<?= cacheBusterLink("psyfi-serviceworker.js")?>";
             window.fluidPatternFile = "<?= cacheBusterLink("fluid/LDR_LLL1_0.png")?>";
@@ -125,9 +130,10 @@ if (@strlen($_REQUEST['stage']) > 1) {
     <canvas></canvas>
 
     <header>
-        <div class="logo"><img id="logo" src="<?= cacheBusterLink("img/logo.main.png") ?>" width="233" height="132"
-                               loading="eager"
-                               alt="<?= getSiteTitle() ?>" <?= $autoEnableFluid ? "" : "onclick=\"startFluid()\" class=\"withPointerEvents\"" ?>/>
+        <div class="logo">
+            <img id="logo" src="<?= cacheBusterLink("img/logo.main.png") ?>" width="233" height="132"
+                 loading="eager"
+                 alt="<?= getSiteTitle() ?>" <?= $autoEnableFluid ? "" : "onclick=\"startFluid()\" class=\"withPointerEvents\"" ?>/>
         </div>
     </header>
 
@@ -275,6 +281,21 @@ if (@strlen($_REQUEST['stage']) > 1) {
                     of Science Holland 2019 Clashfinder</a>.</p>
             <p>You can also check all the <a href="https://clashfinder.com/l/psyfiseedsofscience/?revs"
                                              target="clashfinder">changes</a> made over time.</p>
+        </div>
+    </section>
+
+    <section id="sharing">
+        <h2>
+            <div class="container">Share with your friends</div>
+        </h2>
+        <div class="container">
+            <img class="qrcode color-rotate" src="<?= cacheBusterLink("img/qr-code.svg") ?>" width="429"/>
+            <?php if ($showShare) {
+                ?>
+                <a class="button" style="width: 30%" onclick="share()">Share</a>
+                <?php
+            }
+            ?>
         </div>
     </section>
 

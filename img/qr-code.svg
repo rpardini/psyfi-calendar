@@ -1,0 +1,333 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="429" height="429"  stroke="#CCE4A0" fill="#CCE4A0">
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 143 26)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 195 26)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 234 26)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 247 26)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 260 26)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 273 26)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 143 39)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 156 39)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 182 39)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 195 39)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 208 39)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 221 39)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 260 39)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 286 39)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 143 52)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 182 52)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 195 52)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 234 52)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 247 52)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 260 52)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 143 65)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 169 65)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 195 65)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 208 65)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 221 65)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 260 65)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 143 78)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 156 78)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 195 78)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 208 78)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 234 78)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 260 78)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 130 91)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 169 91)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 182 91)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 195 91)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 208 91)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 260 91)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 273 91)"/>
+    <path d="M100 34.375c0-9.505-3.354-17.611-10.059-24.316S75.131 0 65.625 0H0v100h100V34.375z" transform="matrix(.13 0 0 .13 286 91)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 130 104)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 156 104)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 182 104)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 208 104)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 234 104)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 260 104)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 286 104)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 143 117)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 156 117)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 169 117)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 182 117)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 208 117)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 247 117)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 26 130)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 65 130)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 91 130)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 104 130)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 130 130)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 221 130)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 234 130)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 286 130)"/>
+    <path d="M100 34.375c0-9.505-3.354-17.611-10.059-24.316S75.131 0 65.625 0H0v100h100V34.375z" transform="matrix(.13 0 0 .13 299 130)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 325 130)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 26 143)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 39 143)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 52 143)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 65 143)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 78 143)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 91 143)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 130 143)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 143 143)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 169 143)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 182 143)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 208 143)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 221 143)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 247 143)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 286 143)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 299 143)"/>
+    <path d="M100 34.375c0-9.505-3.354-17.611-10.059-24.316S75.131 0 65.625 0H0v100h100V34.375z" transform="matrix(.13 0 0 .13 312 143)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 351 143)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 390 143)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 39 156)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 78 156)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 91 156)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 104 156)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 117 156)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 130 156)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 169 156)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 234 156)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 260 156)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 273 156)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 312 156)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 351 156)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 364 156)"/>
+    <path d="M100 34.375c0-9.505-3.354-17.611-10.059-24.316S75.131 0 65.625 0H0v100h100V34.375z" transform="matrix(.13 0 0 .13 377 156)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 39 169)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 91 169)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 117 169)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 143 169)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 156 169)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 169 169)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 208 169)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 234 169)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 260 169)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 286 169)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 325 169)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 364 169)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 377 169)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 65 182)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 104 182)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 156 182)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 169 182)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 221 182)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 234 182)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 247 182)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 312 182)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 351 182)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 377 182)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 390 182)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 26 195)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 39 195)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 52 195)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 65 195)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 130 195)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 156 195)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 182 195)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 234 195)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 273 195)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 286 195)"/>
+    <path d="M100 34.375c0-9.505-3.354-17.611-10.059-24.316S75.131 0 65.625 0H0v100h100V34.375z" transform="matrix(.13 0 0 .13 299 195)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 26 208)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 39 208)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 65 208)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 78 208)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 91 208)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 104 208)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 117 208)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 130 208)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 143 208)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 156 208)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 169 208)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 182 208)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 234 208)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 260 208)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 286 208)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 299 208)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 338 208)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 351 208)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 364 208)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 377 208)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 390 208)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 65 221)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 78 221)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 117 221)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 156 221)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 195 221)"/>
+    <path d="M100 34.375c0-9.505-3.354-17.611-10.059-24.316S75.131 0 65.625 0H0v100h100V34.375z" transform="matrix(.13 0 0 .13 208 221)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 247 221)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 260 221)"/>
+    <path d="M100 34.375c0-9.505-3.354-17.611-10.059-24.316S75.131 0 65.625 0H0v100h100V34.375z" transform="matrix(.13 0 0 .13 273 221)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 299 221)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 312 221)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 325 221)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 338 221)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 351 221)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 377 221)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 78 234)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 104 234)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 117 234)"/>
+    <path d="M100 34.375c0-9.505-3.354-17.611-10.059-24.316S75.131 0 65.625 0H0v100h100V34.375z" transform="matrix(.13 0 0 .13 130 234)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 156 234)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 195 234)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 208 234)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 221 234)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 234 234)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 247 234)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 273 234)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 286 234)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 299 234)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 325 234)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 377 234)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 39 247)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 78 247)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 117 247)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 130 247)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 143 247)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 234 247)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 299 247)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 312 247)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 325 247)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 351 247)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 390 247)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 26 260)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 78 260)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 91 260)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 104 260)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 130 260)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 195 260)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 260 260)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 325 260)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 377 260)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 390 260)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 91 273)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 156 273)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 182 273)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 195 273)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 221 273)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 234 273)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 247 273)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 260 273)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 299 273)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 312 273)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 325 273)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 377 273)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 390 273)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 26 286)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 52 286)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 65 286)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 104 286)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 130 286)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 156 286)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 169 286)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 208 286)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 221 286)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 286 286)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 299 286)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 312 286)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 325 286)"/>
+    <path d="M100 34.375c0-9.505-3.354-17.611-10.059-24.316S75.131 0 65.625 0H0v100h100V34.375z" transform="matrix(.13 0 0 .13 338 286)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 364 286)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 130 299)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 143 299)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 195 299)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 234 299)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 247 299)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 273 299)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 286 299)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 338 299)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 364 299)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 377 299)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 390 299)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 156 312)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 195 312)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 208 312)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 260 312)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 286 312)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 312 312)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 338 312)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 377 312)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 130 325)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 182 325)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 195 325)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 221 325)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 260 325)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 286 325)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 338 325)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 351 325)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 364 325)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 377 325)"/>
+    <path d="M100 34.375c0-9.505-3.354-17.611-10.059-24.316S75.131 0 65.625 0H0v100h100V34.375z" transform="matrix(.13 0 0 .13 390 325)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 143 338)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 156 338)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 182 338)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 208 338)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 221 338)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 247 338)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 286 338)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 299 338)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 312 338)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 325 338)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 338 338)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 390 338)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 130 351)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 182 351)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 208 351)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 247 351)"/>
+    <path d="M100 34.375c0-9.505-3.354-17.611-10.059-24.316S75.131 0 65.625 0H0v100h100V34.375z" transform="matrix(.13 0 0 .13 260 351)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 312 351)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 338 351)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 351 351)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 364 351)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 377 351)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 143 364)"/>
+    <path d="M100 34.375V0H34.375C24.87 0 16.764 3.353 10.059 10.059S0 24.87 0 34.375V100h100V34.375z" transform="matrix(.13 0 0 .13 195 364)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 208 364)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 234 364)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 260 364)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 273 364)"/>
+    <path d="M100 34.375c0-9.505-3.354-17.611-10.059-24.316S75.131 0 65.625 0H0v100h100V34.375z" transform="matrix(.13 0 0 .13 286 364)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 338 364)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 351 364)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 364 364)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 390 364)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 169 377)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 195 377)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 234 377)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 247 377)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 260 377)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 273 377)"/>
+    <path d="M0 0h100v100H0z" transform="matrix(.13 0 0 .13 286 377)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 325 377)"/>
+    <path d="M100 100L50 0 0 100z" transform="matrix(.13 0 0 .13 377 377)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 130 390)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 143 390)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 169 390)"/>
+    <path d="M100 100L0 50 100 0z" transform="matrix(.13 0 0 .13 208 390)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 221 390)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 247 390)"/>
+    <path d="M100 0H0v100h65.625c9.506 0 17.611-3.354 24.316-10.059S100 75.131 100 65.625V0z" transform="matrix(.13 0 0 .13 260 390)"/>
+    <path d="M100 0H0v65.625c0 9.506 3.353 17.611 10.059 24.316S24.87 100 34.375 100H100V0z" transform="matrix(.13 0 0 .13 286 390)"/>
+    <path d="M0 100l100-50L0 0z" transform="matrix(.13 0 0 .13 299 390)"/>
+    <path d="M99.999 49.999h-.001L49.999 0 0 49.999h-.001V50H0l49.999 49.999L99.998 50h.001-.001z" transform="matrix(.13 0 0 .13 338 390)"/>
+    <path d="M0-.001l50 100 50-100z" transform="matrix(.13 0 0 .13 377 390)"/>
+    <path fill="none" d="M33.78 85H85V15H15.004l.016 50.855C15.02 76.414 23.436 85 33.78 85z" transform="matrix(.91 0 0 -.91 26 117)"/>
+    <path d="M100 100V34.141 0H0l.02 65.859C.02 84.68 15.16 100 33.78 100H100zM85 85H33.78c-10.344 0-18.76-8.586-18.76-19.145L15.004 15H85v70z" transform="matrix(.91 0 0 -.91 26 117)"/>
+    <path fill="none" d="M33.78 85H85V15H15.004l.016 50.855C15.02 76.414 23.436 85 33.78 85z" transform="matrix(-.91 0 0 -.91 403 117)"/>
+    <path d="M100 100V34.141 0H0l.02 65.859C.02 84.68 15.16 100 33.78 100H100zM85 85H33.78c-10.344 0-18.76-8.586-18.76-19.145L15.004 15H85v70z" transform="matrix(-.91 0 0 -.91 403 117)"/>
+    <path fill="none" d="M33.78 85H85V15H15.004l.016 50.855C15.02 76.414 23.436 85 33.78 85z" transform="matrix(.91 0 0 .91 26 312)"/>
+    <path d="M100 100V34.141 0H0l.02 65.859C.02 84.68 15.16 100 33.78 100H100zM85 85H33.78c-10.344 0-18.76-8.586-18.76-19.145L15.004 15H85v70z" transform="matrix(.91 0 0 .91 26 312)"/>
+    <g>
+        <path d="M0 100C5.883 66.733 5.883 33.283-.003.001 16.67 2.956 33.395 4.447 50 4.447c16.601 0 33.321-1.49 50-4.447-5.886 33.269-5.886 66.715.003 100C83.331 97.045 66.605 95.553 50 95.553c-16.602 0-33.324 1.491-50 4.447z"
+              transform="matrix(.39 0 0 .39 52 52)"/>
+    </g>
+    <g>
+        <path d="M0 100C5.883 66.733 5.883 33.283-.003.001 16.67 2.956 33.395 4.447 50 4.447c16.601 0 33.321-1.49 50-4.447-5.886 33.269-5.886 66.715.003 100C83.331 97.045 66.605 95.553 50 95.553c-16.602 0-33.324 1.491-50 4.447z"
+              transform="matrix(.39 0 0 .39 338 52)"/>
+    </g>
+    <g>
+        <path d="M0 100C5.883 66.733 5.883 33.283-.003.001 16.67 2.956 33.395 4.447 50 4.447c16.601 0 33.321-1.49 50-4.447-5.886 33.269-5.886 66.715.003 100C83.331 97.045 66.605 95.553 50 95.553c-16.602 0-33.324 1.491-50 4.447z"
+              transform="matrix(.39 0 0 .39 52 338)"/>
+    </g>
+</svg>

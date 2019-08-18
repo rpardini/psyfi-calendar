@@ -1,4 +1,4 @@
-<FilesMatch "\.(gif|jpe?g|png|webp)$">
+<FilesMatch "\.(gif|jpe?g|png|webp|svg)$">
 	Header set WTF image
 	Header set "Cache-Control" "public, max-age=31536000"
 </FilesMatch>

@@ -39,3 +39,20 @@ async function installPwa () {
         });
     }
 }
+
+async function sharePWA (title, text, url) {
+    if (navigator.share) {
+        try {
+            await navigator.share({
+                title: title,
+                text: text,
+                url: url,
+            });
+
+            return true;
+        } catch (err) {
+            console.error('There was an error trying to share this content');
+            return false;
+        }
+    }
+}
