@@ -468,8 +468,15 @@ dd {
 
 .button--weather {
     position: absolute;
-    width: 100px;
-    right: 15px;
+    width: 90px;
+    right: 5px;
+    top: -65px;
+}
+
+.button--map {
+    position: absolute;
+    width: 110px;
+    right: 100px;
     top: -65px;
 }
 

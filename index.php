@@ -149,6 +149,11 @@ if (@strlen($_REQUEST['stage']) > 1) {
                 Weather
             </a>
 
+            <a class="button button--map" href="https://www.google.com/maps/d/viewer?mid=1Ul_cv1gxJqRanLnrNHJXWbEiU24i9h8G"
+               target="gmaps">
+                Festival Map
+            </a>
+
             <div id="table-now-next">
                 <?php if (true) {
                     ?>
