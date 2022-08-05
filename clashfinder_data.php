@@ -4,25 +4,43 @@ date_default_timezone_set('Europe/Amsterdam');
 define('CACHE_KEY', "psyfi2019-clashfinder-expiring8");
 define('CACHE_KEY_FALLBACK', "psyfi2019-clashfinder-fallback8");
 
-function getClashFinderData()
-{
-    $url = "https://clashfinder.com/data/event/psyfiseedsofscience.json";
-    if ($data = file_get_contents($url)) {
-        echo "Got new data from ClashFinder...!";
+function getClashFinderData() {
+    $redis = new Redis();
 
-        if ($data = json_decode($data, true)) {
-            echo "Managed to decode JSON OK!...";
-        } else {
-            echo "Failed to decode JSON... using Fallback data...";
-        }
+    $redis->connect('127.0.0.1');
+    $pong = $redis->ping();
+
+    $data = null;
+
+    if ($data = $redis->get(CACHE_KEY)) {
+        // cached data...
+        echo "Using cached data from ClashFinder...!";
+        $data = unserialize($data);
     } else {
-        echo "Failed getting data from ClashFinder. Using fallback data...";
+        // get new data from there; if it fails, use fallback...
+        $url = "https://clashfinder.com/data/event/psyfiseedsofscience.json";
+        if ($data = file_get_contents($url)) {
+            echo "Got new data from ClashFinder...!";
+
+            if ($data = json_decode($data, true)) {
+                echo "Managed to decode JSON OK!...";
+                $serializedData = serialize($data);
+                $redis->setex(CACHE_KEY, 3600 / 2, $serializedData);
+                $redis->set(CACHE_KEY_FALLBACK, $serializedData);
+            } else {
+                echo "Failed to decode JSON... using Fallback data...";
+                $data = unserialize($redis->get(CACHE_KEY_FALLBACK));
+            }
+        } else {
+            echo "Failed getting data from ClashFinder. Using fallback data...";
+            $data = unserialize($redis->get(CACHE_KEY_FALLBACK));
+        }
     }
+    //print_r($data);
     return $data;
 }
 
-function getAllActsFromClashFinder()
-{
+function getAllActsFromClashFinder() {
     $json = getClashFinderData();
     $ret = [];
 
@@ -45,8 +63,7 @@ function getAllActsFromClashFinder()
     return $ret;
 }
 
-function parseClashFinderDate($str)
-{
+function parseClashFinderDate($str) {
     // 2019-08-28 08:00
     $ts_startObj = date_create_from_format("Y-n-j G:i", $str);
     if ($ts_startObj === false) throw new Exception("Could not parse date: $str");
@@ -57,7 +74,7 @@ function parseClashFinderDate($str)
 
     $minute = date("i", $ts_start);
     //echo "Minute: $minute \n";
-    if (($minute == 59) || ($minute == 29)) {
+    if ( ($minute == 59) || ($minute == 29)) {
         $ts_start = $ts_start + 60;
     }
 
