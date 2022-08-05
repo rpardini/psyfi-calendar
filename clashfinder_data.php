@@ -1,25 +1,21 @@
 <?php
 date_default_timezone_set('Europe/Amsterdam');
 
-define('CACHE_KEY', "psyfi2019-clashfinder-expiring8");
-define('CACHE_KEY_FALLBACK', "psyfi2019-clashfinder-fallback8");
+define('CACHE_KEY', "psyfi2022-clashfinder-expiring");
+define('CACHE_KEY_FALLBACK', "psyfi2022-clashfinder-fallback");
 
 function getClashFinderData()
 {
     $redis = new Redis();
-
     $redis->connect('redis');
-    $pong = $redis->ping();
-
-    $data = null;
-
+    
     if ($data = $redis->get(CACHE_KEY)) {
         // cached data...
         echo "Using cached data from ClashFinder...!";
         $data = unserialize($data);
     } else {
         // get new data from there; if it fails, use fallback...
-        $url = "https://clashfinder.com/data/event/psyfiseedsofscience.json";
+        $url = "https://clashfinder.com/data/event/psyfiguardiansofgaia.json";
 
         $cxContext = stream_context_create(array(
             'http' => array(
