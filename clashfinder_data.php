@@ -7,7 +7,7 @@ define('CACHE_KEY_FALLBACK', "psyfi2019-clashfinder-fallback8");
 function getClashFinderData() {
     $redis = new Redis();
 
-    $redis->connect('127.0.0.1');
+    $redis->connect('redis');
     $pong = $redis->ping();
 
     $data = null;
