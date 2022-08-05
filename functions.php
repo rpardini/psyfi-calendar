@@ -1,23 +1,27 @@
 <?php
 
-function scriptTagWithInlineScript($scriptFile) {
+function scriptTagWithInlineScript($scriptFile)
+{
     return "<script type=\"text/javascript\">" . file_get_contents($scriptFile) . "</script>";
 }
 
-function getSiteTitle() {
+function getSiteTitle()
+{
     if ($_SERVER['HTTP_HOST'] === "psyfi.helaaspindakaas.xyz") {
         return "Psy-Fi 2019";
     }
     return "Psy-Fi 2019 STG";
 }
 
-function data_uri($file, $mime) {
+function data_uri($file, $mime)
+{
     $contents = file_get_contents($file);
     $base64 = base64_encode($contents);
     return ('data:' . $mime . ';base64,' . $base64);
 }
 
-function cacheBusterLink($file) {
+function cacheBusterLink($file)
+{
     $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/";
     //if (!file_exists($file)) throw new Exception("File $file does not exist!");
     $mtime = filemtime($file);
@@ -26,7 +30,8 @@ function cacheBusterLink($file) {
     return $baseUrl . $file . "?cb=" . $md5;
 }
 
-function get3ActsByStage($allActs, $allStages, $curTS) {
+function get3ActsByStage($allActs, $allStages, $curTS)
+{
     $byStage = splitByStageOrderByTs($allActs, $allStages);
 
     $stages3 = array();
@@ -38,7 +43,8 @@ function get3ActsByStage($allActs, $allStages, $curTS) {
     return $stages3;
 }
 
-function find3ForStage($acts, $curTS, $stage) {
+function find3ForStage($acts, $curTS, $stage)
+{
     // Find the first act that has ts_start and ts_end between $curTS -- that is the the 2o.
     $found = -1;
     $exact = false;
@@ -66,7 +72,8 @@ function find3ForStage($acts, $curTS, $stage) {
 
 }
 
-function splitByStageOrderByTs($allActs, $allStages) {
+function splitByStageOrderByTs($allActs, $allStages)
+{
 
     $byStage = [];
 
@@ -97,7 +104,8 @@ function splitByStageOrderByTs($allActs, $allStages) {
 }
 
 
-function getAllStages($allData) {
+function getAllStages($allData)
+{
     $stages = [];
 
     foreach ($allData as $data) {
@@ -112,7 +120,8 @@ function getAllStages($allData) {
  * @param array $allActs
  * @param $filterWhere
  */
-function emitIcalForEvents(array $allActs, $filterWhere) {
+function emitIcalForEvents(array $allActs, $filterWhere)
+{
     $begin = <<<EOD
 BEGIN:VCALENDAR
 VERSION:2.0
@@ -145,7 +154,8 @@ EOD;
     echo fixIcalLineTerm($end);
 }
 
-function icalTxt($txt) {
+function icalTxt($txt)
+{
     $result = preg_replace("/[^a-zA-Z0-9\ ]+/", "", $txt);
     $result = str_replace("  ", " ", $result);
     $result = str_replace("  ", " ", $result);
@@ -153,7 +163,8 @@ function icalTxt($txt) {
     return $result;
 }
 
-function emitIcal($a) {
+function emitIcal($a)
+{
     $dtStart = convertIcalDate($a['ts_start']['ts']);
     $dtEnd = convertIcalDate($a['ts_end']['ts']);
     $uid = md5($a['what'] . $a['where']) . "@psy-fi.nl";
@@ -177,11 +188,13 @@ EOD;
 
 }
 
-function fixIcalLineTerm($txt) {
+function fixIcalLineTerm($txt)
+{
     return str_replace("\n", "\r\n", $txt);
 }
 
-function convertIcalDate($dt) {
+function convertIcalDate($dt)
+{
     $dt = ($dt - 60 * 60 * 2); // remove 2 hours for UTC time... supposedly ;-)
     //$dt = strtotime($daystr . " " . $timestr);
     //print_r($dt);

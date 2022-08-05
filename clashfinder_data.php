@@ -8,7 +8,7 @@ function getClashFinderData()
 {
     $redis = new Redis();
     $redis->connect('redis');
-    
+
     if ($data = $redis->get(CACHE_KEY)) {
         // cached data...
         echo "Using cached data from ClashFinder...!";

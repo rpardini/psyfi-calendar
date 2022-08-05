@@ -109,11 +109,11 @@ if (@strlen($_REQUEST['stage']) > 1) {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.runtime.min.js"></script>
         <script type="text/javascript">
-            async function share () {
+            async function share() {
                 sharePWA("<?=getSiteTitle()?>", "Check out this <?=getSiteTitle()?> app! 😍 Touch the logo and then drag for trippy visuals! ", "<?=$baseUrl?>")
             }
 
-            window.fakeTimeForNow = <?= (@!$_REQUEST['fake']) ? "null" : 1567189119 ?> ;
+            window.fakeTimeForNow = <?= (@!$_REQUEST['fake']) ? "null" : 1567189119 ?>;
             window.serviceWorkerWithCacheBuster = "<?= cacheBusterLink("psyfi-serviceworker.js")?>";
             window.fluidPatternFile = "<?= cacheBusterLink("fluid/LDR_LLL1_0.png")?>";
             window.autoStartFluid = <?=$autoEnableFluid ? "true" : "false"?>;
@@ -149,7 +149,8 @@ if (@strlen($_REQUEST['stage']) > 1) {
                 Weather
             </a>
 
-            <a class="button button--map" href="https://www.google.com/maps/d/viewer?mid=1Ul_cv1gxJqRanLnrNHJXWbEiU24i9h8G"
+            <a class="button button--map"
+               href="https://www.google.com/maps/d/viewer?mid=1Ul_cv1gxJqRanLnrNHJXWbEiU24i9h8G"
                target="gmaps">
                 Festival Map
             </a>
@@ -339,7 +340,8 @@ if (@strlen($_REQUEST['stage']) > 1) {
     <?php
 }
 
-function showInstallButton($ifCondition) {
+function showInstallButton($ifCondition)
+{
     if (!$ifCondition) return;
     ?>
     <section id="install">
@@ -349,7 +351,8 @@ function showInstallButton($ifCondition) {
     <?php
 }
 
-function show3Data($act) {
+function show3Data($act)
+{
     if (!$act) {
         return "<div class='act'>--</div>";
     }
@@ -358,7 +361,8 @@ function show3Data($act) {
         . "<div class='color-rotate'>" . $act['what'] . "</div>";
 }
 
-function showTimespan($startObj, $endObj) {
+function showTimespan($startObj, $endObj)
+{
     $dayStart = date('d', $startObj['ts']); // 1-31
     $dayEnd = date('d', $endObj['ts']); // 1-31
 
