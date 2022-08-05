@@ -4,7 +4,8 @@ date_default_timezone_set('Europe/Amsterdam');
 define('CACHE_KEY', "psyfi2019-clashfinder-expiring8");
 define('CACHE_KEY_FALLBACK', "psyfi2019-clashfinder-fallback8");
 
-function getClashFinderData() {
+function getClashFinderData()
+{
     $redis = new Redis();
 
     $redis->connect('redis');
@@ -19,7 +20,15 @@ function getClashFinderData() {
     } else {
         // get new data from there; if it fails, use fallback...
         $url = "https://clashfinder.com/data/event/psyfiseedsofscience.json";
-        if ($data = file_get_contents($url)) {
+
+        $cxContext = stream_context_create(array(
+            'http' => array(
+                'proxy' => 'tcp://' . getenv('PROXY_ADDR'),
+                'request_fulluri' => true,
+            ),
+        ));
+
+        if ($data = file_get_contents($url, false, $cxContext)) {
             echo "Got new data from ClashFinder...!";
 
             if ($data = json_decode($data, true)) {
@@ -40,7 +49,8 @@ function getClashFinderData() {
     return $data;
 }
 
-function getAllActsFromClashFinder() {
+function getAllActsFromClashFinder()
+{
     $json = getClashFinderData();
     $ret = [];
 
@@ -63,7 +73,8 @@ function getAllActsFromClashFinder() {
     return $ret;
 }
 
-function parseClashFinderDate($str) {
+function parseClashFinderDate($str)
+{
     // 2019-08-28 08:00
     $ts_startObj = date_create_from_format("Y-n-j G:i", $str);
     if ($ts_startObj === false) throw new Exception("Could not parse date: $str");
@@ -74,7 +85,7 @@ function parseClashFinderDate($str) {
 
     $minute = date("i", $ts_start);
     //echo "Minute: $minute \n";
-    if ( ($minute == 59) || ($minute == 29)) {
+    if (($minute == 59) || ($minute == 29)) {
         $ts_start = $ts_start + 60;
     }
 
