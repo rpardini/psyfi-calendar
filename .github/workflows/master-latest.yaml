@@ -9,7 +9,7 @@ env:
   # This image's versions, image will be tagged with the combinations (:MAJOR, :MAJOR.MINOR, :MAJOR.MINOR
   MAJOR: "0"
   MINOR: "0"
-  PATCH: "7"
+  PATCH: "8"
 
 jobs:
   build:

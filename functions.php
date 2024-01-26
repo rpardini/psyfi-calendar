@@ -173,11 +173,11 @@ function emitIcal($a)
 
     $vCal = <<<EOD
 BEGIN:VEVENT
-UID:${uid}
+UID:$uid
 DTSTAMP:19971210T080000Z
 SUMMARY:$what
-DTSTART:${dtStart}
-DTEND:${dtEnd}
+DTSTART:$dtStart
+DTEND:$dtEnd
 LOCATION:$where
 DESCRIPTION:$what (at $where)
 END:VEVENT
