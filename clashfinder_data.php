@@ -17,12 +17,16 @@ function getClashFinderData()
         // get new data from there; if it fails, use fallback...
         $url = "https://clashfinder.com/data/event/psyfiguardiansofgaia.json";
 
-        $cxContext = stream_context_create(array(
-            'http' => array(
-                'proxy' => 'tcp://' . getenv('PROXY_ADDR'),
-                'request_fulluri' => true,
-            ),
-        ));
+        $ctxparams = null;
+        if (getenv('PROXY_ADDR')) {
+            $ctxparams = [
+                'http' => [
+                    'proxy' => 'tcp://' . getenv('PROXY_ADDR'),
+                    'request_fulluri' => true,
+                ],
+            ];
+        }
+        $cxContext = stream_context_create($ctxparams);
 
         if ($data = file_get_contents($url, false, $cxContext)) {
             echo "Got new data from ClashFinder...!";
